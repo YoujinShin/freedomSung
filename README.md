@@ -191,5 +191,3 @@ Layouts allow you to have a standard header and footer for a set of pages. It is
 		</body>
 	</html>
 
-# freedomSung
-# freedomSung
