@@ -5,8 +5,8 @@ var width = 100,
 	height = 500,
 	hegiht = height - margin.top - margin.bottom;
 
-var width2 = 300,
-	height2 = 300;
+var width2 = 200,
+	height2 = 260;
 
 var y = d3.time.scale()
 	.range([0, height]);
@@ -65,7 +65,7 @@ var current2;
 // For the map
 var proj = d3.geo.mercator()
   .center([ 28.05097, -26.20192 ]) // center [lon, lat]
-  .scale(14000) // 6500
+  .scale(15500) // 6500 //14000
   .translate([width2/2, height2/2]);
 
 var path = d3.geo.path().projection(proj);
@@ -76,10 +76,10 @@ var svg_city = d3.select("#citymap").append("svg")
 	.append("g")
 		.attr("transform", "translate("+margin.left+","+margin.top+")");
 
-// var g = svg_city.append("g")
-//       	.attr("class", "boundary")
-// 		.append("path")
-//       	.attr("d", path);
+var g = svg_city.append("g")
+      	.attr("class", "boundary")
+		.append("path")
+      	.attr("d", path);
 
 function makeTimeline(data, city) {
 	// console.log(city.features);
@@ -129,14 +129,6 @@ function makeTimeline(data, city) {
 		.style("fill", "#000")
 		.style("opacity", 0);
 
-	// svg_black.append("rect")
-	// 	.attr("x", 0)
-	// 	.attr("y", 0)
-	// 	.attr("width", 200)
-	// 	.attr("height", screen.height)
-	// 	.style("fill", "#000")
-	// 	.style("opacity", 0.9);
-
 	events = svg.selectAll(".dot")
 			.data(data)
 		.enter().append("line")
@@ -151,13 +143,6 @@ function makeTimeline(data, city) {
 			.style("visibility", "hidden");
 
 	var temp = width/2 + 10;
-
-	// axis = svg.append("g")
-	// 	.attr("class", "axis")
-	// 	.attr("transform", "translate("+ temp +", 0)")
-	// 	.style("visibility", "hidden")
-	// 	.style("text-anchor", "start")
-	// 	.call(yAxis);
 }
 
 function hideTimeline() {
@@ -182,33 +167,24 @@ function updateTimeline(d) {
 	svg.selectAll("line").each(function(e) {
 		var distance = Math.abs( d3.select(this).attr("y2") - mouseY );
 		if(distance < 1.2) {
-			// console.log('selected!');
 			d3.select(this).attr("x1", width/2 - 23);
 
 			var t = mouseY + 123;
 			tooltip.style("visibility", "hidden");
 			tooltip.text(e.event);
-			// tooltip.text(e.event);
-			// tooltip.style("top", 47+"%").style("left",50.5+"%");
-			// tooltip.style("top", t+"px").style("left",110+"px");
 
 			date.style("visibility", "visible");
     		date.text(e.date);
     		date.style("top", t+"px").style("right",90+"px");
 
     		if(e.event != eventname) {
-    			// console.log('change');
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
-				// circleMarker.setLatLng([e.start_lat, e.start_lon ]);
-				// circleMarker.setLatLng(L.latLng(e.start_lat, e.start_lon));
-				// map.setView([e.start_lat - (-0.00), e.start_lon - (-0.01)], 11); // 12, 16
-				// var diff = e.start_lat + 0.008;
-				map.setView([e.start_lat, e.start_lon], 11); // 16, 9
+				
+				map.setView([e.start_lat, e.start_lon], 12); // 16, 9
 
 				openImg(e);
 				eventname = e.event;
 
-				// current.attr("transform", "translate("+0+","+0+")");
 				var current_position = proj([ e.start_lon, e.start_lat ]); // lon, lat
 				current.attr("transform", "translate("+ current_position +")");
 				current2.attr("transform", "translate("+ current_position +")");
@@ -221,17 +197,13 @@ function updateTimeline(d) {
 }
 
 function openImg(d) {
-	// $('#image').empty().append('<img id="myImg" src="'+d.pic+'"width="300px">');
-	// console.log(d.type);
 	
     var slideshowContent;
 
     if(d.type == 'pic') {
 
     	var temp_pic = '\''+d.pic+'\'';
-
-    	slideshowContent =
-    					'<h3>' + d.event + '</h3>' + 
+    	slideshowContent = '<h3>' + d.event + '</h3>' + 
     					'<img src="' + d.pic + '"'
     						+ ' style="cursor:pointer" '
     						+ 'onclick="showImage('+ temp_pic+');"'
@@ -241,7 +213,6 @@ function openImg(d) {
     }else if(d.type == 'video') {
     	slideshowContent = '<h3>' + d.event + '</h3>' + d.video;
     }
-    // '<img src="1_small.jpeg" style="cursor:pointer" onclick="showImage('1_large.jpeg');" />
 
     var popupContent = slideshowContent;
 
@@ -249,7 +220,6 @@ function openImg(d) {
         closeButton: false,
         minWidth: 460,
         maxWidth: 800
-        // maxWidth: 300
     });
 
     tempMarker.openPopup();

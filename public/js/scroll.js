@@ -29,8 +29,8 @@ map.scrollWheelZoom.disable();
 // Disable tap handler, if present.
 if (map.tap) map.tap.disable();
 
-var base_layer = L.mapbox.tileLayer('examples.map-2k9d7u0c');
-base_layer.setOpacity(0.6);
+var base_layer = L.mapbox.tileLayer('examples.map-8ced9urs');
+base_layer.setOpacity(0.9);
 base_layer.addTo(map);
 
 queue()
@@ -79,10 +79,8 @@ function ready(error, data, city) {
   makeTimeline(data, city);
 
   var RADIUS = 300000;
-  // var filterCircle = L.circle(L.latLng(-26.1715215,28.0400245), RADIUS, {
   var filterCircle = L.circle([-26.1715215,28.0400245], RADIUS, {
       color: '#fff',
-      // color: '#FFEB3B',
       opacity: 0,
       weight: 0,
       fillOpacity: 0.3
@@ -90,20 +88,16 @@ function ready(error, data, city) {
 
   L.circle([-26.1715215,28.0400245], RADIUS/10, {
       color: '#fff',
-      // color: '#FFEB3B',
       opacity: 0,
       weight: 0,
       fillOpacity: 0.8
   }).addTo(centerLayer);
 
-  // L.marker([-26.1715215,28.0400245], { icon: myIcon })
-  //     .addTo(centerLayer);
-
   var cityStyle = {
       fillColor: '#fff',
-      fillOpacity: 0.0,
+      fillOpacity:0,
       color: '#fff',
-      opacity: 0.5,
+      opacity: 0,
       weight: 1
   };
 
@@ -119,7 +113,7 @@ function Init(d) {
 	var lon = d.start_lon;
 
 	// var marker = L.marker([ lat, lon ], { icon: myIcon });	
-  var marker = L.circle([ lat, lon ], circleRadius/10, {
+  var marker = L.circle([ lat, lon ], circleRadius/8, {
       // color: 'rgba(255,0,0,1)',
       // color: '#F44336',
       color: '#FFEB3B',
@@ -152,16 +146,16 @@ function Init(d) {
   marker.addTo(cityLayer);
   // marker.addTo(markerLayer);
 
-  var textMarker = L.marker([ lat, lon ], {
-    icon: L.divIcon({
-        className: 'label',
-        // color: #fff,
-        html: d.event,
-        iconSize: [180, -5]
-    })
-  });
+  // var textMarker = L.marker([ lat, lon ], {
+  //   icon: L.divIcon({
+  //       className: 'label',
+  //       // color: #fff,
+  //       html: d.event,
+  //       iconSize: [180, -5]
+  //   })
+  // });
 
-  textMarker.addTo(cityLayer);
+  // textMarker.addTo(cityLayer);
 }
 
 onscroll = function() {
@@ -170,7 +164,7 @@ onscroll = function() {
 
   if (scrollTop < 100) {
 
-    base_layer.setOpacity(0.6);
+    base_layer.setOpacity(0.9);
     hideTimeline();
 
     centerLayer.addTo(map);
@@ -201,7 +195,7 @@ onscroll = function() {
 
   } else if(scrollTop >= 100) {
 
-    base_layer.setOpacity(0.2);
+    base_layer.setOpacity(0.9);
 
     map.removeLayer(centerLayer);
     cityLayer.addTo(map);
@@ -210,9 +204,9 @@ onscroll = function() {
     // map.removeLayer(markerLayer);
     // map.removeLayer(centerLayer);
 
-    // cityname.style("visibility", "visible");
-    // cityname.text("JOHANNESBURG");
-    // cityname.style("bottom", 250+"px").style("left",28+"%");
+    cityname.style("visibility", "visible");
+    cityname.text("Johannesburg");
+    cityname.style("bottom", 200+"px").style("left",70+"px");
 
     // map.setView([-26.204407,28.037939+0.7], 9); // 12
     // map.setView([-26.204407,28.037939+0.3], 10);
@@ -224,8 +218,8 @@ onscroll = function() {
 
     // $('#h1_2').css({"visibility":"visible"});
     $('#h5').css({"visibility":"visible"});
-    // $('.boundary').css({"visibility":"visible"});
-    // $('.circle').css({"visibility":"visible"});
+    $('.boundary').css({"visibility":"visible"});
+    $('.circle').css({"visibility":"visible"});
 
     $('#image').css({"visibility":"visible"});
     $('#pointing').css({"visibility":"visible"});

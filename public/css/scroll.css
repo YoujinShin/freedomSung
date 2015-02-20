@@ -4,6 +4,11 @@ body {
 	height: 2000px;
 	background-color: '#000';
 }
+.frontImg{
+	position: fixed;
+	top: 80px;
+	left: 2%;
+}
 h2 {
 	font-family: 'gotham_light', sans-serif !important;
 	color: #fff;
@@ -44,10 +49,10 @@ h5 {
 	color: rgba(255,255,255,1);
 	position: fixed;
 	left: 2%;
-	top: 65px;
+	top: 40px;
 	padding: 8px;
-	font-size: 13px !important;
-	width: 270px;
+	font-size: 11px !important;
+	width: 170px;
 	line-height: 170%;
 }
 .leaflet-popup-content-wrapper {
@@ -134,9 +139,10 @@ h5 {
 	/*font-weight: 300;*/
 }
 #cityname {   
-	position: fixed;           
+	position: fixed;   
+	text-align: center;        
 	margin: 0px;
-	font: 12px 'gotham_light';        
+	font: 10px 'gotham_light';        
 	border-radius: 2px;           
 	color: #fff;  
 	font-weight: 300;
@@ -162,7 +168,7 @@ h5 {
 /*svg city map*/
 #citymap {
 	position: fixed;
-	bottom: 240px;
+	bottom: 50px;
 	/*top: 320px;*/
 	left: 2%;
 }
