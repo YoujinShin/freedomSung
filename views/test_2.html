@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Freedom-sung</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:50%; left: 50%;}
+</style>
+</head>
+<body>
+
+
+<style>
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: '#000' !important;
+}
+.subject {
+  letter-spacing: 1px;
+}
+h3{ font-weight: bold; font-size: 20px; letter-spacing: 1px;
+}
+article {
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0px;
+  left:0;
+  overflow:auto;
+  }
+.quiet {
+  color:rgba(0,0,0,0.5);
+  }
+.scroll {
+  display:block;
+  text-align:center;
+  }
+.sections {
+  /*background:rgba(255,255,255,0.3);*/
+  background:rgba(100,100,100,0.2);
+  /*background:rgba(10,10,10,0.6);*/
+  width: 50%;
+  /*width:240px;*/
+  }
+section {
+  padding:20px;
+  padding-bottom: 30px;
+  color:rgba(0,0,0,0.5);
+  -webkit-transition:background 500ms, color 500ms;
+          transition:background 500ms, color 500ms;
+  }
+section.active {
+  background:#fff;
+  color: #000;
+  /*color:#404040;*/
+  }
+</style>
+<div id='map'></div>
+
+<article id='narrative'>
+  <div class='sections prose'>
+    <section id='cover' class='cover active' style="padding-bottom: 40px;">
+      <h3>Freedom sung</h3>
+      <!-- <p>by Sir Arthur Conan Doyle</p> -->
+      <small class='scroll quiet'>Scroll &#x25BE;</small>
+    </section>
+    <section id='bophelong' style="padding-bottom: 40px;">
+      <h3>Bophelong visit</h3>
+    <!--   <p>November 1895. London is shrouded in fog and Sherlock Holmes and Watson pass time restlessly awaiting a new case. "The London criminal is certainly a dull fellow," Sherlock bemoans. "There have been numerous petty thefts," Watson offers in response. Just then a telegram arrives from Sherlock's brother Mycroft with a mysterious case.</p> -->
+    </section>
+    <section id='local'>
+      <h3>Local Government Elections Workshop</h3><br>
+      <img src="local.jpg" width="100%">
+
+    </section>
+    <section id='orlando'>
+      <h3>Orlando East March</h3><br>
+      <img src="orlando.jpg" width="100%">
+
+    </section>
+    <section id='protea'>
+      <h3>Protea South March</h3><br>
+      <img src="protea.jpg" width="100%">
+
+    </section>
+    <section id='scr'>
+      <h3>SCR March</h3><br>
+      <img src="scr.jpg" width="100%">
+
+    </section>
+    <section id='march' style="padding-bottom: 40px;">
+      <h3>March Vaal</h3>
+
+    </section>
+    <section id='heroes'>
+      <h3>Heroes Day</h3><br>
+      <img src="heroes.jpg" width="100%">
+
+    </section>
+    <section id='abahlali'>
+      <h3>Abahlali Solidarity March</h3><br>
+      <img src="abahlali.jpg" width="100%">
+
+<!--       <small class='colophon'>
+        Adapted from <a href='http://www.gutenberg.org/files/2346/2346-h/2346-h.htm'>Project Gutenberg</a>
+      </small> -->
+    </section>
+  </div>
+</article>
+
+
+<script>
+// https://www.mapbox.com/mapbox.js/example/v1.0.0/scroll-driven-navigation/
+
+L.mapbox.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM584kmRt2nkSOcHw';
+
+
+// map and the data.
+var places = { type: 'FeatureCollection', features: [
+{ geometry: { type: "Point", coordinates: [27.7839915-0.3, -26.6870614+0.2] },
+  properties: { id: "cover", zoom: 9 }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [27.7839915, -26.6870614] },
+  properties: { id: "bophelong" }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [28.05097, -26.20192] },
+  properties: { id: "local" }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [27.923966, -26.243254] },
+  properties: { id: "orlando" }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [27.843500, -26.284604] },
+  properties: { id: "protea" }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [27.854085, -26.2515141] },
+  properties: { id: "scr" }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [27.840795, -26.607459] },
+  properties: { id: "march" }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [27.9332975, -26.2575162] },
+  properties: { id: "heroes" }, type: 'Feature' },
+{ geometry: { type: "Point", coordinates: [27.847106, -26.286488] },
+  properties: { id: "abahlali" }, type: 'Feature' }
+]};
+
+
+// color: examples.map-i86nkdio
+// grey: examples.map-20v6611k
+// satellite: examples.map-2k9d7u0c
+var map = L.mapbox.map('map', 'examples.map-20v6611k', {
+    zoomControl: false
+});
+
+var placesLayer = L.mapbox.featureLayer(places)
+    .addTo(map);
+
+var narrative = document.getElementById('narrative'),
+    sections = narrative.getElementsByTagName('section'),
+    currentId = '';
+
+
+setId('cover');
+
+
+function setId(newId) {
+    if (newId === currentId) return;
+
+    placesLayer.eachLayer(function(layer) {
+        if (layer.feature.properties.id === newId) {
+            map.setView(layer.getLatLng(), layer.feature.properties.zoom || 11);
+            layer.setIcon(L.mapbox.marker.icon({
+              'marker-color': '#fff'
+              // 'marker-color': '#a8f'
+            }));
+        } else {
+            layer.setIcon(L.mapbox.marker.icon({
+              'marker-color': '#aaaaaa'
+                // 'marker-color': '#404040'
+            }));
+        }
+    });
+
+    // highlight the current section
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].className = sections[i].id === newId ? 'active' : '';
+    }
+    currentId = newId;
+}
+
+
+narrative.onscroll = function(e) {
+    // console.log("//////////////////////////////////");
+    // console.log("narrative: "+narrative.offsetHeight);
+
+    var narrativeHeight = narrative.offsetHeight;
+    var newId = currentId;
+
+    for (var i = sections.length - 1; i >= 0; i--) {
+        var rect = sections[i].getBoundingClientRect();
+        // console.log(i+", "+sections[i].id+", "+rect.top);
+
+        if (rect.top >= 0 && rect.top <= narrativeHeight) {
+            // console.log(sections[i].id);
+            newId = sections[i].id;
+            console.log("new id: "+newId)
+        }
+    };
+    setId(newId);
+};
+</script>
+
+
+</body>
+</html>
+

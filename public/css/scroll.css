@@ -1,0 +1,251 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 2000px;
+	background-color: '#000';
+}
+h2 {
+	font-family: 'gotham_light', sans-serif !important;
+	color: #fff;
+	position: fixed;
+	background-color: rgba(255,255,255,0.1);
+	padding: 8px;
+	/*width: 450px;*/
+	left: 48%;
+	margin-right: 5%;
+}
+h4 {
+	font-family: 'gotham_light', sans-serif !important;
+	color: #fff;
+	position: fixed;
+	left: 48%;
+	font-size: 12px !important;
+	margin-right: 5%;
+	padding: 8px;
+}
+.leaflet-container h3 {
+	font-family: 'gotham_light', sans-serif !important;
+	font-size: 14px;
+	padding: 6px;
+
+	color: #fff;
+	background-color: rgba(0,0,0,1);
+}
+#southAftica {
+	visibility: hidden;
+}
+.strong{
+	font-family: 'gotham_book', sans-serif !important;
+	font-size: 28px;
+}
+h5 {
+	font-family: 'gotham_light', sans-serif !important;
+	/*font-family: sans-serif !important;*/
+	color: rgba(255,255,255,1);
+	position: fixed;
+	left: 2%;
+	top: 65px;
+	padding: 8px;
+	font-size: 13px !important;
+	width: 270px;
+	line-height: 170%;
+}
+.leaflet-popup-content-wrapper {
+	/*width: 400px;*/
+	height: 400px;
+}
+.custom-popup .leaflet-popup-content-wrapper img {
+    height: 330px;
+    /*height: 258px;*/
+    /*width: 400px;*/
+    /*height: 400px;*/
+    float: left;
+}
+.caption {
+	height: 205px;
+	color: #000;
+	font-family: 'gotham_book', sans-serif !important;
+	font-size: 14px;
+}
+.intro {
+	font-family: 'gotham_light', sans-serif !important;
+	color: rgba(255,255,255,0.6);
+	position: fixed;
+	padding: 8px;
+	left: 48%;
+	top: 47%;
+	font-size: 14px;
+	margin-right: 17%;
+	background-color: rgba(0,0,0,0);
+	line-height: 160%;
+}
+#timeline {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+}
+#map { 
+	position: fixed;
+	top: 0; 
+	left: 0;
+	height: 100%;
+	width: 100%; 
+	background-color: rgba(20,20,20,1);
+}
+
+.axis path {
+	fill: none;
+	stroke: none;
+/*stroke: #000;*/
+}
+.axis line {
+	fill: none;
+	stroke: none;
+	/*stroke: #fff;*/
+/*stroke: rgba(255,255,255,0.3);*/
+}
+.axis text {
+	font-family: 'gotham_light', sans-serif !important;
+	font-size: 10px;
+	/*visibility: visible;*/
+}
+.line {
+/*	fill: #fff;
+	stroke-weight: 5px;
+	stroke: rgba(255,255,255,1);*/
+}
+.tick {
+	/*color: #fff;*/
+	fill: #fff;
+	font-size: 12px;
+}
+#tooltip {   
+	position: fixed;           
+	margin: 0px;
+	font: 24px 'gotham_light';        
+	border-radius: 2px;           
+	color: #fff;  
+	/*text-align: center !important; */
+	top: 47.5%;
+	right: 53%;
+	padding: 7px;
+	/*background-color: rgba(255,255,255,0.1);*/
+	background-color: rgba(0,0,0,0.1);
+	/*font-weight: 300;*/
+}
+#cityname {   
+	position: fixed;           
+	margin: 0px;
+	font: 12px 'gotham_light';        
+	border-radius: 2px;           
+	color: #fff;  
+	font-weight: 300;
+}
+
+#date {
+	position: fixed;
+	font: 14px 'gotham_light';        
+	color: #fff; 
+	opacity: 1;
+	/*background-color: rgba(0,0,0,0.1);*/
+}
+#pointing {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 40%;
+	border: 1px solid rgba(255,255,255,0.0);
+	border-style: dashed solid;
+	visibility: hidden;
+}
+
+/*svg city map*/
+#citymap {
+	position: fixed;
+	bottom: 240px;
+	/*top: 320px;*/
+	left: 2%;
+}
+.boundary {
+	fill: rgba(255,255,255,0.0);
+	stroke: #fff;
+	stroke-width: 2px;
+	visibility: hidden;
+	/*position:fixed;*/
+	/*bottom: 600px;*/
+}
+.circle {
+	visibility: hidden;
+}
+/**/
+
+#black {
+	position: fixed;
+	/*width: 100%;*/
+	height: 100%;
+	top: 0;
+	right: 0;
+}
+
+/*popup*/
+.custom-popup .leaflet-popup-content-wrapper {
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  font-size:16px;
+  line-height:24px;
+  border-radius: 0px;
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+  /*color:rgba(255,255,255,0.5);*/
+  }
+.custom-popup .leaflet-popup-tip-container {
+/*  width:30px;
+  height:15px;*/
+  }
+.custom-popup .leaflet-popup-tip {
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-top:15px solid rgba(255,255,255,0.1);
+  }
+
+/*image*/
+#largeImgPanel {
+    text-align: center;
+    visibility: hidden;
+    position: fixed;
+    z-index: 100;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0, 0.8);
+}
+
+/*zoomControl*/
+.leaflet-left {
+	left: 2%;
+}
+
+.leaflet-top {
+	top: 330px;
+}
+
+.leaflet-bar, .leaflet-control-layers {
+	background-color: rgba(255,255,255,0.5);
+	/*border*/
+	border-color: rgba(0,0,0,0);
+	color: red;
+	fill: red;
+	/*border-radius: 0px;*/
+}
+
+.leaflet-bar a, .leaflet-bar a:hover {
+	color: red;
+
+}
+
+/*label*/
+.label {
+	color: #fff;
+	opacity: 0.5;
+	text-align: center;
+	font-size: 9px;
+}
+

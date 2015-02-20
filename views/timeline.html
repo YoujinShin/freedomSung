@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>FREEDOM SUNG</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+<!-- <script src='http://d3js.org/d3.v3.min.js' charset="utf-8"></script>
+<script src='http://d3js.org/queue.v1.min.js'></script> -->
+
+<style>
+  body { 
+    margin:0; 
+    padding:0; 
+    font-family: 'Lato', sans-serif;
+    background-color: '#000' !important;
+    color: #fff;
+  }
+  #map { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    background-color: #000;
+  }
+
+  #event {
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 400;
+    position: absolute;
+    top: 40px;
+    left: 8%;
+    font-size: 21px;
+    color: #fff;
+    letter-spacing: 3px;
+    /*font-weight: */
+  }
+  #timeline {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
+  .axis {
+    /*color: #fff;*/
+  }
+  .axis path {
+    fill: none;
+    stroke: none;
+    /*stroke: #000;*/
+  }
+  .axis line {
+    fill: none;
+    stroke: #fff;
+    /*stroke: rgba(255,255,255,0.3);*/
+  }
+  .dot {
+    /*fill: #fff;*/
+    /*stroke-weight: 2px;*/
+    stroke: rgba(255,255,255,0.8);
+  }
+  .tick {
+    /*color: #fff;*/
+    fill: #fff;
+    font-size: 12px;
+  }
+  #tooltip {   
+      position: absolute;           
+      text-align: center;
+      /*padding: 2px;             */
+      margin: 0px;
+      font: 12px sans-serif;        
+      border: 1px;      
+      border-radius: 2px;           
+      pointer-events: none;      
+      color: #fff;  
+
+      padding: 1px;
+      /*background: rgba(0, 0, 0, 0.82);*/
+      /*background-color: rgba(255,255,255,0.4);*/
+      border-radius: 5px;
+      font-weight: 300;
+      /*font-family: Georgia, Arial, Helvetica, sans-serif !important;*/
+    }
+/*    .image {
+      width: 320px;
+    }
+*/
+    img {
+      width: 300px;
+    }
+
+    .popup {
+      text-align:center;
+      }
+    .popup .slideshow .image        { display:none; }
+    .popup .slideshow .image.active { display:block; }
+    .popup .slideshow img {
+      width:100%;
+      }
+    .popup .slideshow .caption {
+      background:#eee;
+      padding:10px;
+      }
+    .popup .cycle {
+      padding:10px 0 20px;
+      }
+      .popup .cycle a.prev { float:left; }
+      .popup .cycle a.next { float:right; }
+
+      .leaflet-popup-content-wrapper, .map-legends, .map-tooltip {
+        color: #fff;
+        font-weight: 300;
+        border: 1px solid rgba(255,255,255,0.2);
+        /*background-color: rgba(0,0,0,0.8);*/
+        background-color: rgba(255,255,255,0.1);
+      }
+/*  .event {
+    position: absolute;
+    top: 100px;
+    left: 10%;
+    font-size: 30px;
+    color: #fff;
+  }*/
+</style>
+</head>
+
+
+<body>
+<div id='map'></div>
+<div id="timeline"></div>
+
+<script src="/js/d3.min.js"></script>
+<script src="/js/queue.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script src="/js/timeline.js"></script>
+
+<script>
+// https://www.mapbox.com/mapbox.js/example/v1.0.0/scroll-driven-navigation/
+
+L.mapbox.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM584kmRt2nkSOcHw';
+
+// color: examples.map-i86nkdio
+// grey: examples.map-20v6611k
+// satellite: examples.map-2k9d7u0c
+var map = L.map('map', {
+    zoomControl: false
+}).setView([-23, 10], 4);
+
+// var camb_map = L.map('camb_map', {
+//   zoomControl: false
+// }).setView([42.3783903+0.001,-71.1129096-0.01], 15);
+
+var base_layer = L.mapbox.tileLayer('examples.map-2k9d7u0c');
+base_layer.setOpacity(0.76);
+base_layer.addTo(map);
+
+// var marker = L.marker([ -26.5848839,27.8344046], {
+var marker = L.marker([ -200,200], {
+    icon: L.mapbox.marker.icon({
+      // 'marker-color': '#f86767'
+      'marker-color': '#fff'
+    })
+});
+marker.addTo(map);
+marker.setOpacity(0.82);
+
+</script>
+
+</body>
+</html>
+
