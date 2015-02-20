@@ -30,7 +30,7 @@ Download and install Heroku Toolbelt <https://toolbelt.heroku.com>, this will gi
 
 5) Add MongoLabs Starter MongoDB add on to your heroku app
 
-	heroku addons:add mongolab:starter
+	heroku addons:add mongolab
 
 6) Get Heroku MongoLab connection string into .env file
 
