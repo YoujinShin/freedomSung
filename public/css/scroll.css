@@ -42,12 +42,13 @@ h4 {
 }
 .leaflet-container h3 {
 	font-family: 'gotham_light', sans-serif !important;
-	font-size: 18px;
+	font-size: 19px;
 	padding: 12px;
 	letter-spacing: 1px;
+	text-align: center;
 
 	color: #fff;
-	background-color: rgba(0,0,0,0.5);
+	/*background-color: rgba(0,0,0,0.5);*/
 	/*background-color: rgba(10,16,29,0.6);*/
 
 }
@@ -218,7 +219,7 @@ h5 {
 
 /*popup*/
 .custom-popup .leaflet-popup-content-wrapper {
-  background:rgba(255,255,255,0.1);
+  background:rgba(0,0,0,0.6);
   color:#fff;
   font-size:16px;
   line-height:24px;
@@ -234,7 +235,7 @@ h5 {
 .custom-popup .leaflet-popup-tip {
   border-left:10px solid transparent;
   border-right:10px solid transparent;
-  border-top:15px solid rgba(255,255,255,0.1);
+  border-top:15px solid rgba(0,0,0,0.6);
   }
 
 /*image*/

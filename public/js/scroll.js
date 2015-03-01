@@ -189,7 +189,9 @@ onscroll = function() {
     cityname.style("visibility", "visible");
     // cityname.text("Johannesburg, South Africa");
     cityname.html("Johannesburg<br> South Africa");
-    cityname.style("top", 610+"px").style("left",132+"px");
+
+    var pos_y = $(window).height() * 0.81;
+    cityname.style("top",pos_y+"px").style("left",132+"px");
     bg_city.style('visibility', 'visible');
 
     // map.setView([-26.204407,28.037939+0.7], 9); // 12

@@ -89,9 +89,9 @@ var bg_city = svg_city.append('rect')
 	.attr('height', height2 + margin.top + margin.bottom)
 	.style('visibility', 'hidden')
 	.attr('stroke', 'rgba(255,255,255,1)')
-	.attr('stroke-width', 1)
-	// .style('fill', 'rgba(0,0,0,0.6)');
-	.style('fill', 'rgba(255,255,255,0.15)');
+	.attr('stroke-width', 0)
+	.style('fill', 'rgba(0,0,0,0.4)');
+	// .style('fill', 'rgba(255,255,255,0.15)');
 
 var bg_timeline;
 
@@ -142,13 +142,13 @@ function makeTimeline(data, city) {
 	// 	.style("opacity", 0.1);
 
 	bg_timeline = svg.append("rect")
-		.attr("x", 24)
+		.attr("x", 26)
 		.attr("y", -10)
-		.attr("width", width-48)
+		.attr("width", width-52)
 		.attr("height", height + 20)
-		.style("fill", "#fff")
+		.style("fill", "#000")
 		.style('visibility', 'hidden')
-		.style("opacity", 0.15);
+		.style("opacity", 0.4);
 
 	events = svg.selectAll(".dot")
 			.data(data)
