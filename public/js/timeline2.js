@@ -9,7 +9,7 @@ var width2 = 200,
 	height2 = 260;
 
 var y = d3.time.scale()
-	.range([0, height]);
+	.range([8, height-8]);
 
 var yAxis = d3.svg.axis()
 	.scale(y)
@@ -20,12 +20,12 @@ var yAxis = d3.svg.axis()
 // var smallScale = 128;
 // var largeScale = 1269;
 
-var smallScale = 100;
+var smallScale = 80;
 var largeScale = 1800;
 
 var scrollScale = d3.scale.linear()
 	.domain([smallScale, largeScale])
-	.range([-5,height]);
+	.range([0,height]);
 
 var tooltip = d3.select("body")
   .append("div")
