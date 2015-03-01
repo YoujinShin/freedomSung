@@ -140,7 +140,7 @@ onscroll = function() {
   scrollTop = document.documentElement.scrollTop || document.body.scrollTop;  
   // console.log(scrollTop);
 
-  if (scrollTop < 100) {
+  if (scrollTop < 101) {
 
     base_layer.setOpacity(0.9);
     hideTimeline();
@@ -174,7 +174,7 @@ onscroll = function() {
 
     eventname = 'test';
 
-  } else if(scrollTop >= 100) {
+  } else if(scrollTop >= 101) {
 
     base_layer.setOpacity(0.8);
 
