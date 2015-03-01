@@ -19,6 +19,7 @@ h2 {
 	/*width: 450px;*/
 	left: 48%;
 	margin-right: 5%;
+	letter-spacing: 1px;
 }
 h4 {
 	font-family: 'gotham_light', sans-serif !important;
@@ -36,7 +37,8 @@ h4 {
 	letter-spacing: 1px;
 
 	color: #fff;
-	background-color: rgba(255,255,255,0.23);
+	background-color: rgba(10,16,29,0.6);
+
 }
 #southAftica {
 	visibility: hidden;
@@ -86,7 +88,7 @@ h5 {
 	margin-right: 17%;
 	background-color: rgba(0,0,0,0);
 	line-height: 160%;
-	width: 420px;
+	width: 440px;
 }
 #timeline {
     position: fixed;
@@ -257,7 +259,7 @@ h5 {
 /*label*/
 .label {
 	color: #fff;
-	opacity: 0.8;
+	opacity: 0.9;
 	text-align: center;
 	font-size: 10px;
 	letter-spacing: 1px;
