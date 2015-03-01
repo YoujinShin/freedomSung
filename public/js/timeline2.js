@@ -90,7 +90,7 @@ var bg_city = svg_city.append('rect')
 	.style('visibility', 'hidden')
 	.attr('stroke', 'rgba(255,255,255,1)')
 	.attr('stroke-width', 0)
-	.style('fill', 'rgba(0,0,0,0.4)');
+	.style('fill', 'rgba(0,0,0,0.3)');
 	// .style('fill', 'rgba(255,255,255,0.15)');
 
 var bg_timeline;
@@ -148,7 +148,7 @@ function makeTimeline(data, city) {
 		.attr("height", height + 20)
 		.style("fill", "#000")
 		.style('visibility', 'hidden')
-		.style("opacity", 0.4);
+		.style("opacity", 0.3);
 
 	events = svg.selectAll(".dot")
 			.data(data)
@@ -189,7 +189,7 @@ function updateTimeline(d) {
 		if(distance < 1.2) {
 			d3.select(this).attr("x1", width/2 - 23);
 
-			var t = mouseY + 123;
+			var t = mouseY + 102;
 			tooltip.style("visibility", "hidden");
 			tooltip.text(e.event);
 

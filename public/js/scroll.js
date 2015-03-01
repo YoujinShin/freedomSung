@@ -190,7 +190,7 @@ onscroll = function() {
     // cityname.text("Johannesburg, South Africa");
     cityname.html("Johannesburg<br> South Africa");
 
-    var pos_y = $(window).height() * 0.81;
+    var pos_y = $(window).height() * 0.5 + 260;
     cityname.style("top",pos_y+"px").style("left",132+"px");
     bg_city.style('visibility', 'visible');
 
