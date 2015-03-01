@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	height: 2000px;
+	height: 2800px;
 	background-color: '#000';
 }
 .frontImg{
@@ -52,6 +52,7 @@ h5 {
 	font-family: 'gotham_light', sans-serif !important;
 	/*font-family: sans-serif !important;*/
 	color: rgba(255,255,255,1);
+	opacity: 1;
 	position: fixed;
 	left: 3%;
 	top: 140px;

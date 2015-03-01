@@ -17,8 +17,11 @@ var yAxis = d3.svg.axis()
 	.innerTickSize([20])
 	.ticks(12);
 
-var smallScale = 128;
-var largeScale = 1269;
+// var smallScale = 128;
+// var largeScale = 1269;
+
+var smallScale = 110;
+var largeScale = 1800;
 
 var scrollScale = d3.scale.linear()
 	.domain([smallScale, largeScale])
@@ -164,7 +167,7 @@ function updateTimeline(d) {
 
 	var mouseY = scrollScale(d);
 
-	dot.attr("cy", mouseY); 
+	dot.attr("cy", mouseY);
 	dot.style("visibility", "visible");
 	events.style("visibility", "visible");
 	// axis.style("visibility", "visible");
