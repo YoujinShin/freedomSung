@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 2800px;
-	background-color: '#000';
+	background-color: '#fff';
 }
 .frontImg{
 	position: fixed;
@@ -42,8 +42,8 @@ h4 {
 }
 .leaflet-container h3 {
 	font-family: 'gotham_light', sans-serif !important;
-	font-size: 19px;
-	padding: 12px;
+	font-size: 15px;
+	padding: 3px;
 	letter-spacing: 1px;
 	text-align: center;
 
@@ -67,22 +67,19 @@ h5 {
 	position: fixed;
 	left: 3%;
 	top: 18%;
-	padding: 8px;
+	padding: 0px;
 	/*background-color: rgba(0,0,0,0.1);*/
-	font-size: 13px !important;
+	font-size: 12px !important;
 	width: 200px;
 	line-height: 170%;
 	letter-spacing: 1px;
 }
 .leaflet-popup-content-wrapper {
 	/*width: 400px;*/
-	height: 400px;
+	height: 360px;
 }
 .custom-popup .leaflet-popup-content-wrapper img {
-    height: 330px;
-    /*height: 258px;*/
-    /*width: 400px;*/
-    /*height: 400px;*/
+    height: 300px;
     float: left;
 }
 .caption {
@@ -115,7 +112,8 @@ h5 {
 	left: 0;
 	height: 100%;
 	width: 100%; 
-	background-color: rgba(20,20,20,1);
+	background-color: rgba(220,220,220,0.5);
+	/*background-color: rgba(20,20,20,1);*/
 }
 
 .axis path {
@@ -162,7 +160,7 @@ h5 {
 	position: fixed;   
 	text-align: right;        
 	margin: 0px;
-	font: 13px 'gotham_light';        
+	font: 13px 'gotham_book';        
 	border-radius: 2px;           
 	color: #fff;  
 	font-weight: 300;
@@ -172,7 +170,7 @@ h5 {
 
 #date {
 	position: fixed;
-	font: 15px 'gotham_light';        
+	font: 14px 'gotham_book';        
 	color: #fff; 
 	opacity: 1;
 	letter-spacing: 1px;
@@ -219,7 +217,7 @@ h5 {
 
 /*popup*/
 .custom-popup .leaflet-popup-content-wrapper {
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.5);
   color:#fff;
   font-size:16px;
   line-height:24px;
@@ -235,7 +233,7 @@ h5 {
 .custom-popup .leaflet-popup-tip {
   border-left:10px solid transparent;
   border-right:10px solid transparent;
-  border-top:15px solid rgba(0,0,0,0.6);
+  border-top:15px solid rgba(0,0,0,0.5);
   }
 
 /*image*/
@@ -273,10 +271,11 @@ h5 {
 
 /*label*/
 .label {
+	font-family: 'gotham_book', sans-serif !important;
 	color: #fff;
-	opacity: 0.9;
+	opacity: 1;
 	text-align: center;
-	font-size: 10px;
+	font-size: 11px;
 	letter-spacing: 1px;
 }
 

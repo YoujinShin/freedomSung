@@ -24,7 +24,7 @@ map.scrollWheelZoom.disable();
 if (map.tap) map.tap.disable();
 
 var base_layer = L.mapbox.tileLayer('examples.map-2k9d7u0c');
-base_layer.setOpacity(0.9);
+base_layer.setOpacity(1);
 base_layer.addTo(map);
 
 queue()
@@ -51,7 +51,7 @@ var tempMarker = L.circle([ -26.20192, 28.05097 ], circleRadius, {
     color: '#FFEB3B',
     opacity: 1,
     weight: 0,
-    fillOpacity: 0.3
+    fillOpacity: 0.0
 }).addTo(cityLayer);
 
 function ready(error, data, city) {
@@ -103,7 +103,7 @@ function Init(d) {
       color: '#FFEB3B',
       opacity: 1,
       weight: 0,
-      fillOpacity: 0.8
+      fillOpacity: 0.0
   });
 
   var feature = marker.feature;
@@ -133,7 +133,7 @@ function Init(d) {
     })
   });
 
-  textMarker.addTo(cityLayer);
+  // textMarker.addTo(cityLayer);
 }
 var change = 0;
 
@@ -145,7 +145,7 @@ onscroll = function() {
 
     change = 0;
 
-    base_layer.setOpacity(0.9);
+    base_layer.setOpacity(1);
     hideTimeline();
 
     centerLayer.addTo(map);
@@ -183,11 +183,11 @@ onscroll = function() {
 
   } else if(scrollTop >= 80) {
 
-    base_layer.setOpacity(0.8);
+    base_layer.setOpacity(0.9);
 
     if(change == 0) {
       tempMarker.setLatLng([-26.20192,28.05097 ]);
-      map.setView([-26.20192,28.05097], 15); 
+      map.setView([-26.20192,28.05097], 14); 
 
       change = 1;
     }

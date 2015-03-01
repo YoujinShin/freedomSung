@@ -54,7 +54,7 @@ var svg = d3.select("#timeline").append("svg")
 var dot = svg.append("circle")
 		.attr("cx", width/2)
 		.attr("cy", 0)
-		.attr("r", 3)
+		.attr("r", 2.5)
 		.style("fill", "rgba(255,255,255,1")
 		.style("visibility", "hidden");
 
@@ -89,9 +89,9 @@ var bg_city = svg_city.append('rect')
 	.attr('height', height2 + margin.top + margin.bottom)
 	.style('visibility', 'hidden')
 	.attr('stroke', 'rgba(255,255,255,1)')
-	.attr('stroke-width', 0)
+	.attr('stroke-width', 1)
 	// .style('fill', 'rgba(0,0,0,0.3)');
-	.style('fill', 'rgba(255,255,255,0.1)');
+	.style('fill', 'rgba(255,255,255,0.0)');
 
 var bg_timeline;
 
@@ -108,7 +108,7 @@ function makeTimeline(data, city) {
 		.style("fill", "white")
 		.attr("class", "circle")
 		.style("opacity", 1)
-		.attr("r", 3 )
+		.attr("r", 2 )
 		.attr("transform", function(d) {
 		return "translate("+
 		proj([ 28.05097, -26.20192  ])  // lon, lat
@@ -118,7 +118,7 @@ function makeTimeline(data, city) {
      current2 = svg_city.append("circle")
 		.attr("class", "circle")
 		.style("fill", "white")
-		.style("opacity", 0.4)
+		.style("opacity", 0.5)
 		.attr("r", 12 )
 		.attr("transform", function(d) {
 			return "translate(" +
@@ -148,7 +148,7 @@ function makeTimeline(data, city) {
 		.attr("height", height + 20)
 		.style("fill", "#fff")
 		.style('visibility', 'hidden')
-		.style("opacity", 0.1);
+		.style("opacity", 0.0);
 
 	events = svg.selectAll(".dot")
 			.data(data)
@@ -159,7 +159,8 @@ function makeTimeline(data, city) {
 			.attr("y2", function(d) { return y(d.start); })
 			.attr("y2", function(d) { return y(d.start); })
 			.style("stroke", "#fff")
-			.style("stroke-width", "2px")
+			.style('opacity', 1)
+			.style("stroke-width", 2)
 			.style("visibility", "hidden");
 
 	var temp = width/2 + 10;
@@ -201,7 +202,7 @@ function updateTimeline(d) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
 				// console.log(e.start_lat + ','+ e.start_lon);
 				
-				map.setView([e.start_lat, e.start_lon], 15); // 16, 9
+				map.setView([e.start_lat, e.start_lon], 14); // 16, 9
 
 				openImg(e);
 				eventname = e.event;
@@ -239,7 +240,7 @@ function openImg(d) {
 
     tempMarker.bindPopup(popupContent,{
         closeButton: false,
-        minWidth: 460,
+        minWidth: 419,
         maxWidth: 800
     });
 
