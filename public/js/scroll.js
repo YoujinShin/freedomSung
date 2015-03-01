@@ -168,6 +168,7 @@ onscroll = function() {
     tooltip.style("visibility", "hidden");
     cityname.style("visibility", "hidden");
     bg_city.style('visibility', 'hidden');
+    bg_timeline.style("visibility", "hidden");
 
     date.style("visibility", "hidden");
 
@@ -175,7 +176,7 @@ onscroll = function() {
 
   } else if(scrollTop >= 100) {
 
-    base_layer.setOpacity(0.75);
+    base_layer.setOpacity(0.8);
 
     map.removeLayer(centerLayer);
     cityLayer.addTo(map);
@@ -183,6 +184,7 @@ onscroll = function() {
     
     // map.removeLayer(markerLayer);
     // map.removeLayer(centerLayer);
+    bg_timeline.style("visibility", "visible");
 
     cityname.style("visibility", "visible");
     // cityname.text("Johannesburg, South Africa");

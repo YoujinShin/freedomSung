@@ -65,7 +65,7 @@ h5 {
 	opacity: 1;
 	position: fixed;
 	left: 3%;
-	top: 140px;
+	top: 18%;
 	padding: 8px;
 	/*background-color: rgba(0,0,0,0.1);*/
 	font-size: 13px !important;
@@ -105,7 +105,7 @@ h5 {
 }
 #timeline {
     position: fixed;
-    top: 100px;
+    top: 10%;
     right: 10px;
 }
 #map { 
@@ -190,7 +190,8 @@ h5 {
 /*svg city map*/
 #citymap {
 	position: fixed;
-	top: 350px;
+	top: 50%;
+	/*top: 350px;*/
 	/*top: 320px;*/
 	left:3%;
 }

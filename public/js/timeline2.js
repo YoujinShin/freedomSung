@@ -2,7 +2,7 @@ var margin = { top: 30, right: 10, left: 10, bottom: 30 };
 
 var width = 100,
 	width = width - margin.left - margin.right,
-	height = 500,
+	height = $(window).height() * 0.75,
 	hegiht = height - margin.top - margin.bottom;
 
 var width2 = 200,
@@ -20,7 +20,7 @@ var yAxis = d3.svg.axis()
 // var smallScale = 128;
 // var largeScale = 1269;
 
-var smallScale = 102;
+var smallScale = 100;
 var largeScale = 1800;
 
 var scrollScale = d3.scale.linear()
@@ -93,6 +93,8 @@ var bg_city = svg_city.append('rect')
 	// .style('fill', 'rgba(0,0,0,0.6)');
 	.style('fill', 'rgba(255,255,255,0.15)');
 
+var bg_timeline;
+
 function makeTimeline(data, city) {
 
     svg_city.append("g")
@@ -139,12 +141,13 @@ function makeTimeline(data, city) {
 	// 	.style("fill", "#fff")
 	// 	.style("opacity", 0.1);
 
-	svg.append("rect")
-		.attr("x", 22)
+	bg_timeline = svg.append("rect")
+		.attr("x", 24)
 		.attr("y", -10)
-		.attr("width", width-44)
+		.attr("width", width-48)
 		.attr("height", height + 20)
 		.style("fill", "#fff")
+		.style('visibility', 'hidden')
 		.style("opacity", 0.15);
 
 	events = svg.selectAll(".dot")
