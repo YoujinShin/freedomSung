@@ -20,7 +20,7 @@ var yAxis = d3.svg.axis()
 // var smallScale = 128;
 // var largeScale = 1269;
 
-var smallScale = 110;
+var smallScale = 102;
 var largeScale = 1800;
 
 var scrollScale = d3.scale.linear()
@@ -90,7 +90,8 @@ var bg_city = svg_city.append('rect')
 	.style('visibility', 'hidden')
 	.attr('stroke', 'rgba(255,255,255,1)')
 	.attr('stroke-width', 1)
-	.style('fill', 'rgba(255,255,255,0.05)');
+	// .style('fill', 'rgba(0,0,0,0.6)');
+	.style('fill', 'rgba(255,255,255,0.15)');
 
 function makeTimeline(data, city) {
 
@@ -130,13 +131,21 @@ function makeTimeline(data, city) {
 
 	y.domain(d3.extent(data, function(d) { return d.start; }));
 
+	// svg.append("rect")
+	// 	.attr("x", -margin.left)
+	// 	.attr("y", -margin.top)
+	// 	.attr("width", width + margin.left + margin.right)
+	// 	.attr("height", height + margin.top + margin.bottom)
+	// 	.style("fill", "#fff")
+	// 	.style("opacity", 0.1);
+
 	svg.append("rect")
-		.attr("x", -margin.left)
-		.attr("y", -margin.top)
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
-		.style("fill", "#000")
-		.style("opacity", 0);
+		.attr("x", 22)
+		.attr("y", -10)
+		.attr("width", width-44)
+		.attr("height", height + 20)
+		.style("fill", "#fff")
+		.style("opacity", 0.15);
 
 	events = svg.selectAll(".dot")
 			.data(data)
