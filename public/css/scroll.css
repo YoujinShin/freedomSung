@@ -86,6 +86,7 @@ h5 {
 	margin-right: 17%;
 	background-color: rgba(0,0,0,0);
 	line-height: 160%;
+	width: 420px;
 }
 #timeline {
     position: fixed;
