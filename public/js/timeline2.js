@@ -199,6 +199,7 @@ function updateTimeline(d) {
 
     		if(e.event != eventname) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
+				// console.log(e.start_lat + ','+ e.start_lon);
 				
 				map.setView([e.start_lat, e.start_lon], 15); // 16, 9
 

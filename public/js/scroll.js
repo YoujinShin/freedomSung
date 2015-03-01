@@ -135,12 +135,15 @@ function Init(d) {
 
   textMarker.addTo(cityLayer);
 }
+var change = 0;
 
 onscroll = function() {
   scrollTop = document.documentElement.scrollTop || document.body.scrollTop;  
   // console.log(scrollTop);
 
   if (scrollTop < 80) {
+
+    change = 0;
 
     base_layer.setOpacity(0.9);
     hideTimeline();
@@ -181,6 +184,13 @@ onscroll = function() {
   } else if(scrollTop >= 80) {
 
     base_layer.setOpacity(0.8);
+
+    if(change == 0) {
+      tempMarker.setLatLng([-26.20192,28.05097 ]);
+      map.setView([-26.20192,28.05097], 15); 
+
+      change = 1;
+    }
 
     map.removeLayer(centerLayer);
     cityLayer.addTo(map);
