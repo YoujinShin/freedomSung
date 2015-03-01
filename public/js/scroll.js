@@ -1,9 +1,3 @@
-// Normal
-// L.mapbox.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM584kmRt2nkSOcHw';
-
-// NYU
-// L.mapbox.accessToken = 'pk.eyJ1IjoieXMxNDM4IiwiYSI6InA1VTBzVTAifQ.u4GWw5QalseqBHPl-DmyAw';
-
 // Tayo
 L.mapbox.accessToken = 'pk.eyJ1Ijoib2pvbGFvIiwiYSI6IlVMbWRBRDAifQ.fGYcIjLhkNO5xFAUcXNtmw';
 
@@ -29,7 +23,7 @@ map.scrollWheelZoom.disable();
 // Disable tap handler, if present.
 if (map.tap) map.tap.disable();
 
-var base_layer = L.mapbox.tileLayer('examples.map-8ced9urs');
+var base_layer = L.mapbox.tileLayer('examples.map-2k9d7u0c');
 base_layer.setOpacity(0.9);
 base_layer.addTo(map);
 
@@ -49,7 +43,7 @@ var myIcon = L.icon({
       iconSize: [13, 13]
 });
 
-var circleRadius = 1200;
+var circleRadius = 170; //1200;
 
 var tempMarker = L.circle([ -26.20192, 28.05097 ], circleRadius, {
     // color: 'rgba(255,0,0,1)',
@@ -60,17 +54,6 @@ var tempMarker = L.circle([ -26.20192, 28.05097 ], circleRadius, {
     fillOpacity: 0.3
 }).addTo(cityLayer);
 
-// var tempMarker = L.marker([ -26.20192, 28.05097 ], { icon: myIcon })
-//     .addTo(cityLayer);
-
-// var tempMarker = L.marker([ -26.20192, 28.05097 ], {
-//    icon: L.mapbox.marker.icon({
-//      'marker-color': '#eee'
-//    })
-//  }).addTo(cityLayer);
-
-// tempMarker.setOpacity(0.8);
-
 function ready(error, data, city) {
 	data.forEach(function(d) {
 		Init(d);
@@ -79,6 +62,7 @@ function ready(error, data, city) {
   makeTimeline(data, city);
 
   var RADIUS = 300000;
+  // var RADIUS = 3000;
   var filterCircle = L.circle([-26.1715215,28.0400245], RADIUS, {
       color: '#fff',
       opacity: 0,
@@ -136,26 +120,20 @@ function Init(d) {
                                 slideshowContent +
                           '</div>';
 
-  // marker.bindPopup(popupContent,{
-  //     closeButton: false,
-  //     minWidth: 320,
-  //     maxWidth: 320
-  // });
-
   marker.openPopup();
   marker.addTo(cityLayer);
   // marker.addTo(markerLayer);
 
-  // var textMarker = L.marker([ lat, lon ], {
-  //   icon: L.divIcon({
-  //       className: 'label',
-  //       // color: #fff,
-  //       html: d.event,
-  //       iconSize: [180, -5]
-  //   })
-  // });
+  var textMarker = L.marker([ lat, lon ], {
+    icon: L.divIcon({
+        className: 'label',
+        // color: #fff,
+        html: d.event,
+        iconSize: [180, -5]
+    })
+  });
 
-  // textMarker.addTo(cityLayer);
+  textMarker.addTo(cityLayer);
 }
 
 onscroll = function() {
@@ -189,13 +167,15 @@ onscroll = function() {
 
     tooltip.style("visibility", "hidden");
     cityname.style("visibility", "hidden");
+    bg_city.style('visibility', 'hidden');
+
     date.style("visibility", "hidden");
 
     eventname = 'test';
 
   } else if(scrollTop >= 100) {
 
-    base_layer.setOpacity(0.9);
+    base_layer.setOpacity(0.65);
 
     map.removeLayer(centerLayer);
     cityLayer.addTo(map);
@@ -205,8 +185,10 @@ onscroll = function() {
     // map.removeLayer(centerLayer);
 
     cityname.style("visibility", "visible");
-    cityname.text("Johannesburg");
-    cityname.style("bottom", 200+"px").style("left",70+"px");
+    // cityname.text("Johannesburg, South Africa");
+    cityname.html("Johannesburg<br> South Africa");
+    cityname.style("bottom", 110+"px").style("left",132+"px");
+    bg_city.style('visibility', 'visible');
 
     // map.setView([-26.204407,28.037939+0.7], 9); // 12
     // map.setView([-26.204407,28.037939+0.3], 10);
@@ -216,7 +198,7 @@ onscroll = function() {
     $('#intro').css({"visibility":"hidden"});
     $('#scroll').css({"visibility":"hidden"});
 
-    // $('#h1_2').css({"visibility":"visible"});
+    $('#h1_2').css({"visibility":"visible"});
     $('#h5').css({"visibility":"visible"});
     $('.boundary').css({"visibility":"visible"});
     $('.circle').css({"visibility":"visible"});

@@ -17,10 +17,8 @@ var yAxis = d3.svg.axis()
 	.innerTickSize([20])
 	.ticks(12);
 
-// var smallScale = 128;
-// var largeScale = 1269;
-var smallScale = 110;
-var largeScale = 1000;
+var smallScale = 128;
+var largeScale = 1269;
 
 var scrollScale = d3.scale.linear()
 	.domain([smallScale, largeScale])
@@ -65,7 +63,7 @@ var current2;
 // For the map
 var proj = d3.geo.mercator()
   .center([ 28.05097, -26.20192 ]) // center [lon, lat]
-  .scale(15500) // 6500 //14000
+  .scale(12000) // 6500 //14000
   .translate([width2/2, height2/2]);
 
 var path = d3.geo.path().projection(proj);
@@ -81,8 +79,17 @@ var g = svg_city.append("g")
 		.append("path")
       	.attr("d", path);
 
+var bg_city = svg_city.append('rect')
+	.attr('x', -margin.left)
+	.attr('y', -margin.top)
+	.attr('width', width2 + margin.left + margin.right)
+	.attr('height', height2 + margin.top + margin.bottom)
+	.style('visibility', 'hidden')
+	.attr('stroke', 'rgba(255,255,255,1)')
+	.attr('stroke-width', 1)
+	.style('fill', 'rgba(255,255,255,0.05)');
+
 function makeTimeline(data, city) {
-	// console.log(city.features);
 
     svg_city.append("g")
       .attr("class", "boundary")
@@ -92,27 +99,26 @@ function makeTimeline(data, city) {
       	.attr("d", path);
 
     current = svg_city.append("circle")
-     .style("fill", "white")
-     .attr("class", "circle")
-     .style("opacity", 1)
-     .attr("r", 3 )
-     .attr("transform", function(d) {
-      return "translate("+
-        proj([ 28.05097, -26.20192  ])  // lon, lat
-      + ")"
+		.style("fill", "white")
+		.attr("class", "circle")
+		.style("opacity", 1)
+		.attr("r", 3 )
+		.attr("transform", function(d) {
+		return "translate("+
+		proj([ 28.05097, -26.20192  ])  // lon, lat
+		+ ")"
      });
 
      current2 = svg_city.append("circle")
-     .attr("class", "circle")
-     .style("fill", "white")
-     .style("opacity", 0.4)
-     .attr("r", 12 )
-     .attr("transform", function(d) {
-      return "translate("+
-        proj([ 28.05097, -26.20192  ])  // lon, lat
-      + ")"
-     });
-
+		.attr("class", "circle")
+		.style("fill", "white")
+		.style("opacity", 0.4)
+		.attr("r", 12 )
+		.attr("transform", function(d) {
+			return "translate(" +
+					proj([ 28.05097, -26.20192 ])  // lon, lat
+				+ ")"
+     	});
 
 	data.forEach(function(d) {
 		d.date = d.start;
@@ -132,7 +138,6 @@ function makeTimeline(data, city) {
 	events = svg.selectAll(".dot")
 			.data(data)
 		.enter().append("line")
-			// .attr("class", "line")
 			.attr("x1", function(d) { return width/2-7; })
 			.attr("y1", function(d) { return y(d.start); })
 			.attr("x2", function(d) { return width/2+7; })
@@ -180,7 +185,7 @@ function updateTimeline(d) {
     		if(e.event != eventname) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
 				
-				map.setView([e.start_lat, e.start_lon], 12); // 16, 9
+				map.setView([e.start_lat, e.start_lon], 15); // 16, 9
 
 				openImg(e);
 				eventname = e.event;
@@ -210,7 +215,7 @@ function openImg(d) {
     					+ ' />' 
     					+'<div class="caption">' + '</div>';
 
-    }else if(d.type == 'video') {
+    } else if(d.type == 'video') {
     	slideshowContent = '<h3>' + d.event + '</h3>' + d.video;
     }
 
