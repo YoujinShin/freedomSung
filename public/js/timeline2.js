@@ -25,7 +25,7 @@ var largeScale = 1800;
 
 var scrollScale = d3.scale.linear()
 	.domain([smallScale, largeScale])
-	.range([0,height]);
+	.range([-5,height]);
 
 var tooltip = d3.select("body")
   .append("div")
