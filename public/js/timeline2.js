@@ -9,7 +9,7 @@ var width2 = 200,
 	height2 = 260;
 
 var y = d3.time.scale()
-	.range([0, height]);
+	.range([2, height]);
 
 var yAxis = d3.svg.axis()
 	.scale(y)
@@ -229,10 +229,6 @@ function updateTimeline(d) {
 
     		stateLine.transition()
         			.duration(520).attr('y1', ty);
-
-    		// var t_y = $(window).height() * 0.5 + 30;
-    		// var t_x = 10;
-    		// date.style("top",t_y+"px").style("left",132+"px");
 
     		if(e.event != eventname) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
