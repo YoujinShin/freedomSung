@@ -1,6 +1,6 @@
 var margin = { top: 30, right: 10, left: 10, bottom: 30 };
 
-var width = 100,
+var width = 80,
 	width = width - margin.left - margin.right,
 	height = $(window).height() * 0.75,
 	hegiht = height - margin.top - margin.bottom;
@@ -9,7 +9,7 @@ var width2 = 200,
 	height2 = 260;
 
 var y = d3.time.scale()
-	.range([8, height-8]);
+	.range([0, height]);
 
 var yAxis = d3.svg.axis()
 	.scale(y)
@@ -54,8 +54,8 @@ var svg = d3.select("#timeline").append("svg")
 var dot = svg.append("circle")
 		.attr("cx", width/2)
 		.attr("cy", 0)
-		.attr("r", 2.5)
-		.style("fill", "rgba(255,255,255,1")
+		.attr("r", 4)
+		.style("fill", "rgba(255,255,255,1)")
 		.style("visibility", "hidden");
 
 var events;
@@ -94,6 +94,29 @@ var bg_city = svg_city.append('rect')
 	.style('fill', 'rgba(255,255,255,0.0)');
 
 var bg_timeline;
+// var guideLine;
+
+var guideLine = svg.append("line")
+			.attr("x1", 8)
+			.attr("y1", 0 )
+			.attr("x2", 8 )
+			.attr("y2", height )
+			.style("stroke", "#fff")
+			.style('opacity', 1)
+			.style("stroke-width", 0.5)
+			// .style("stroke-dasharray", ("1, 5")) 
+			.style("visibility", "hidden");
+
+var stateLine = svg.append("line")
+			.attr("x1", 8)
+			.attr("y1", 0 )
+			.attr("x2", 8 )
+			.attr("y2", 0 )
+			.style("stroke", "#FFEB3B")
+			.style('opacity', 1)
+			.style("stroke-width", 1.2)
+			// .style("stroke-dasharray", ("1, 5")) 
+			.style("visibility", "hidden");
 
 function makeTimeline(data, city) {
 
@@ -105,21 +128,21 @@ function makeTimeline(data, city) {
       	.attr("d", path);
 
     current = svg_city.append("circle")
-		.style("fill", "white")
+		.style("fill", "#FFEB3B")
 		.attr("class", "circle")
 		.style("opacity", 1)
-		.attr("r", 2 )
+		.attr("r", 2.3 )
 		.attr("transform", function(d) {
 		return "translate("+
-		proj([ 28.05097, -26.20192  ])  // lon, lat
+		proj([ 28.05097, -26.20192 ])  // lon, lat
 		+ ")"
      });
 
      current2 = svg_city.append("circle")
 		.attr("class", "circle")
-		.style("fill", "white")
-		.style("opacity", 0.5)
-		.attr("r", 12 )
+		.style("fill", "#FFEB3B")
+		.style("opacity", 0.4)
+		.attr("r", 14 )
 		.attr("transform", function(d) {
 			return "translate(" +
 					proj([ 28.05097, -26.20192 ])  // lon, lat
@@ -157,10 +180,9 @@ function makeTimeline(data, city) {
 			.attr("y1", function(d) { return y(d.start); })
 			.attr("x2", function(d) { return width/2+7; })
 			.attr("y2", function(d) { return y(d.start); })
-			.attr("y2", function(d) { return y(d.start); })
 			.style("stroke", "#fff")
 			.style('opacity', 1)
-			.style("stroke-width", 2)
+			.style("stroke-width", 1.2)
 			.style("visibility", "hidden");
 
 	var temp = width/2 + 10;
@@ -185,24 +207,39 @@ function updateTimeline(d) {
 	events.style("visibility", "visible");
 	// axis.style("visibility", "visible");
 
-	svg.selectAll("line").each(function(e) {
+	// svg.selectAll("line").each(function(e) {
+	events.each(function(e) {
+		// var distance = Math.abs( d3.select(this).attr("y2") - mouseY );
 		var distance = Math.abs( d3.select(this).attr("y2") - mouseY );
 		if(distance < 1.2) {
-			d3.select(this).attr("x1", width/2 - 23);
+			// d3.select(this).attr("x1", width/2 - 35);
+			// d3.select(this).style("stroke-width", 2)
 
 			var t = mouseY + 102;
 			tooltip.style("visibility", "hidden");
 			tooltip.text(e.event);
 
 			date.style("visibility", "visible");
-    		date.text(e.date);
+    		// date.text(e.date);
     		date.style("top", t+"px").style("right",90+"px");
+
+    		$('#current_date').html(e.date);
+
+    		var ty = d3.select(this).attr("y2");
+
+    		stateLine.transition()
+        			.duration(520).attr('y1', ty);
+
+    		// var t_y = $(window).height() * 0.5 + 30;
+    		// var t_x = 10;
+    		// date.style("top",t_y+"px").style("left",132+"px");
 
     		if(e.event != eventname) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
 				// console.log(e.start_lat + ','+ e.start_lon);
 				
 				map.setView([e.start_lat, e.start_lon], 14); // 16, 9
+				// map.flyTo([e.start_lat, e.start_lon]);
 
 				openImg(e);
 				eventname = e.event;
@@ -210,9 +247,11 @@ function updateTimeline(d) {
 				var current_position = proj([ e.start_lon, e.start_lat ]); // lon, lat
 				current.attr("transform", "translate("+ current_position +")");
 				current2.attr("transform", "translate("+ current_position +")");
+				
 			}
 		} else {
 			d3.select(this).attr("x1", width/2 - 7);
+			d3.select(this).style("stroke-width", 1.2)
 			// tooltip.style("visibility", "hidden");
 		}
 	});

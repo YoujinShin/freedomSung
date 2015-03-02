@@ -1,6 +1,8 @@
 // Tayo
 L.mapbox.accessToken = 'pk.eyJ1Ijoib2pvbGFvIiwiYSI6IlVMbWRBRDAifQ.fGYcIjLhkNO5xFAUcXNtmw';
 
+// mapboxgl.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM584kmRt2nkSOcHw';
+
 // color: examples.map-i86nkdio
 // grey: examples.map-20v6611k
 // satellite: examples.map-2k9d7u0c
@@ -10,6 +12,40 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoib2pvbGFvIiwiYSI6IlVMbWRBRDAifQ.fGYcIjLhkNO5xF
 var map = L.map('map', {
     zoomControl: false
 }).setView([-26.204407 + 8,28.037939 + 30], 4);
+
+// var map = new mapboxgl.Map({
+//   container: 'map',
+//   style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
+//   center: [-26.204407 + 8,28.037939 + 30],
+//   zoom: 4,
+//   zoomControl: false
+// });
+
+// var tileset = 'examples.map-2k9d7u0c';
+// var map = new mapboxgl.Map({
+//   container: 'map', // container id
+//   style: {
+//     "version": 7,
+//     "sources": {
+//       "simple-tiles": {
+//         "tiles": "raster",
+//         "url": "mapbox://" + tileset,
+//         "tileSize": 256,
+//         "type": "raster"
+//       }
+//     },
+//     "layers": [{
+//       "id": "simple-tiles",
+//       "type": "raster",
+//       "source": "simple-tiles",
+//       "minzoom": 0,
+//       "maxzoom": 22
+//     }]
+//   },
+//   zoomControl: false,
+//   center: [-26.204407 + 8,28.037939], // starting position
+//   zoom: 4 // starting zoom
+// });
 
 var scrollTop = 0;
 
@@ -65,17 +101,17 @@ function ready(error, data, city) {
   var RADIUS = 300000;
   // var RADIUS = 3000;
   var filterCircle = L.circle([-26.1715215,28.0400245], RADIUS, {
-      color: '#FFEB3B',
+      color: '#fff',
       opacity: 0,
       weight: 0,
-      fillOpacity: 0.2
+      fillOpacity: 0.3
   }).addTo(centerLayer);
 
   L.circle([-26.1715215,28.0400245], RADIUS/10, {
-      color: '#FFEB3B',
+      color: '#fff',
       opacity: 0,
       weight: 0,
-      fillOpacity: 1
+      fillOpacity: 0.8
   }).addTo(centerLayer);
 
   var cityStyle = {
@@ -175,9 +211,6 @@ onscroll = function() {
     bg_city.style('visibility', 'hidden');
     bg_timeline.style("visibility", "hidden");
 
-    guideLine.style('visibility','hidden');
-    stateLine.style('visibility','hidden');
-
     date.style("visibility", "hidden");
 
     eventname = 'test';
@@ -231,9 +264,6 @@ onscroll = function() {
     $('#image').css({"visibility":"visible"});
     $('#pointing').css({"visibility":"visible"});
     $('#southAftica').css({"visibility":"visible"});
-
-    guideLine.style('visibility','visible');
-    stateLine.style('visibility','visible');
   } 
 };
 
