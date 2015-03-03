@@ -17,11 +17,8 @@ var yAxis = d3.svg.axis()
 	.innerTickSize([20])
 	.ticks(12);
 
-// var smallScale = 128;
-// var largeScale = 1269;
-
-var smallScale = 80;
-var largeScale = 1800;
+var smallScale = 80;	//128
+var largeScale = 1800;	//1269
 
 var scrollScale = d3.scale.linear()
 	.domain([smallScale, largeScale])
@@ -94,7 +91,6 @@ var bg_city = svg_city.append('rect')
 	.style('fill', 'rgba(255,255,255,0.0)');
 
 var bg_timeline;
-// var guideLine;
 
 var guideLine = svg.append("line")
 			.attr("x1", 8)
@@ -103,8 +99,7 @@ var guideLine = svg.append("line")
 			.attr("y2", height )
 			.style("stroke", "#fff")
 			.style('opacity', 1)
-			.style("stroke-width", 0.5)
-			// .style("stroke-dasharray", ("1, 5")) 
+			.style("stroke-width", 0.8)
 			.style("visibility", "hidden");
 
 var stateLine = svg.append("line")
@@ -114,7 +109,7 @@ var stateLine = svg.append("line")
 			.attr("y2", 0 )
 			.style("stroke", "#FFEB3B")
 			.style('opacity', 1)
-			.style("stroke-width", 1.2)
+			.style("stroke-width", 2)
 			// .style("stroke-dasharray", ("1, 5")) 
 			.style("visibility", "hidden");
 
@@ -131,23 +126,23 @@ function makeTimeline(data, city) {
 		.style("fill", "#FFEB3B")
 		.attr("class", "circle")
 		.style("opacity", 1)
-		.attr("r", 2.3 )
+		.attr("r", 3.5 )
 		.attr("transform", function(d) {
 		return "translate("+
 		proj([ 28.05097, -26.20192 ])  // lon, lat
 		+ ")"
-     });
+	});
 
      current2 = svg_city.append("circle")
 		.attr("class", "circle")
 		.style("fill", "#FFEB3B")
 		.style("opacity", 0.4)
-		.attr("r", 14 )
+		.attr("r", 18 )
 		.attr("transform", function(d) {
 			return "translate(" +
 					proj([ 28.05097, -26.20192 ])  // lon, lat
 				+ ")"
-     	});
+    });
 
 	data.forEach(function(d) {
 		d.date = d.start;
@@ -155,14 +150,6 @@ function makeTimeline(data, city) {
 	});
 
 	y.domain(d3.extent(data, function(d) { return d.start; }));
-
-	// svg.append("rect")
-	// 	.attr("x", -margin.left)
-	// 	.attr("y", -margin.top)
-	// 	.attr("width", width + margin.left + margin.right)
-	// 	.attr("height", height + margin.top + margin.bottom)
-	// 	.style("fill", "#fff")
-	// 	.style("opacity", 0.1);
 
 	bg_timeline = svg.append("rect")
 		.attr("x", 26)
@@ -191,7 +178,6 @@ function makeTimeline(data, city) {
 function hideTimeline() {
 	dot.style("visibility", "hidden");
 	events.style("visibility", "hidden");
-	// axis.style("visibility", "hidden");
 }
 
 var eventname = 'test';
@@ -205,9 +191,7 @@ function updateTimeline(d) {
 	dot.attr("cy", mouseY);
 	dot.style("visibility", "visible");
 	events.style("visibility", "visible");
-	// axis.style("visibility", "visible");
 
-	// svg.selectAll("line").each(function(e) {
 	events.each(function(e) {
 		// var distance = Math.abs( d3.select(this).attr("y2") - mouseY );
 		var distance = Math.abs( d3.select(this).attr("y2") - mouseY );
@@ -227,23 +211,18 @@ function updateTimeline(d) {
 
     		var ty = d3.select(this).attr("y2");
 
-    		stateLine.transition()
-        			.duration(520).attr('y1', ty);
+    		stateLine.transition().duration(520).attr('y1', ty);
 
     		if(e.event != eventname) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
-				// console.log(e.start_lat + ','+ e.start_lon);
 				
 				map.setView([e.start_lat, e.start_lon], 14); // 16, 9
-				// map.flyTo([e.start_lat, e.start_lon]);
-
 				openImg(e);
 				eventname = e.event;
 
 				var current_position = proj([ e.start_lon, e.start_lat ]); // lon, lat
 				current.attr("transform", "translate("+ current_position +")");
 				current2.attr("transform", "translate("+ current_position +")");
-				
 			}
 		} else {
 			d3.select(this).attr("x1", width/2 - 7);
@@ -258,7 +237,6 @@ function openImg(d) {
     var slideshowContent;
 
     if(d.type == 'pic') {
-
     	var temp_pic = '\''+d.pic+'\'';
     	slideshowContent = '<h3>' + d.event + '</h3>' + 
     					'<img src="' + d.pic + '"'
@@ -266,7 +244,6 @@ function openImg(d) {
     						+ 'onclick="showImage('+ temp_pic+');"'
     					+ ' />' 
     					+'<div class="caption">' + '</div>';
-
     } else if(d.type == 'video') {
     	slideshowContent = '<h3>' + d.event + '</h3>' + d.video;
     }

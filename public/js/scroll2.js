@@ -1,8 +1,6 @@
 // Tayo
 L.mapbox.accessToken = 'pk.eyJ1Ijoib2pvbGFvIiwiYSI6IlVMbWRBRDAifQ.fGYcIjLhkNO5xFAUcXNtmw';
 
-// mapboxgl.accessToken = 'pk.eyJ1IjoibWVnZ29uYWd1bCIsImEiOiI1cFpUOE5RIn0.jooCCIM584kmRt2nkSOcHw';
-
 // color: examples.map-i86nkdio
 // grey: examples.map-20v6611k
 // satellite: examples.map-2k9d7u0c
@@ -12,40 +10,6 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoib2pvbGFvIiwiYSI6IlVMbWRBRDAifQ.fGYcIjLhkNO5xF
 var map = L.map('map', {
     zoomControl: false
 }).setView([-26.204407 + 8,28.037939 + 30], 4);
-
-// var map = new mapboxgl.Map({
-//   container: 'map',
-//   style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
-//   center: [-26.204407 + 8,28.037939 + 30],
-//   zoom: 4,
-//   zoomControl: false
-// });
-
-// var tileset = 'examples.map-2k9d7u0c';
-// var map = new mapboxgl.Map({
-//   container: 'map', // container id
-//   style: {
-//     "version": 7,
-//     "sources": {
-//       "simple-tiles": {
-//         "tiles": "raster",
-//         "url": "mapbox://" + tileset,
-//         "tileSize": 256,
-//         "type": "raster"
-//       }
-//     },
-//     "layers": [{
-//       "id": "simple-tiles",
-//       "type": "raster",
-//       "source": "simple-tiles",
-//       "minzoom": 0,
-//       "maxzoom": 22
-//     }]
-//   },
-//   zoomControl: false,
-//   center: [-26.204407 + 8,28.037939], // starting position
-//   zoom: 4 // starting zoom
-// });
 
 var scrollTop = 0;
 
@@ -221,7 +185,7 @@ onscroll = function() {
 
   } else if(scrollTop >= 80) {
 
-    base_layer.setOpacity(0.7);
+    base_layer.setOpacity(0.5);
 
     if(change == 0) {
       tempMarker.setLatLng([-26.20192,28.05097 ]);

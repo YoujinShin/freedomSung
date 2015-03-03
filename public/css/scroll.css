@@ -74,7 +74,6 @@ h4 {
 	color: #fff;
 	/*background-color: rgba(0,0,0,0.5);*/
 	/*background-color: rgba(10,16,29,0.6);*/
-
 }
 #southAftica {
 	visibility: hidden;
@@ -136,9 +135,7 @@ h5 {
 	left: 0;
 	height: 100%;
 	width: 100%; 
-	/*background-color: rgba(220,220,220,0.5);*/
 	background-color: rgba(21,32,45,1);
-	/*background-color: rgba(20,20,20,1);*/
 }
 
 .axis path {
@@ -149,8 +146,6 @@ h5 {
 .axis line {
 	fill: none;
 	stroke: none;
-	/*stroke: #fff;*/
-/*stroke: rgba(255,255,255,0.3);*/
 }
 .axis text {
 	font-family: 'gotham_light', sans-serif !important;
@@ -173,13 +168,10 @@ h5 {
 	font: 24px 'gotham_light';        
 	border-radius: 2px;           
 	color: #fff;  
-	/*text-align: center !important; */
 	top: 47.5%;
 	right: 53%;
 	padding: 7px;
-	/*background-color: rgba(255,255,255,0.1);*/
 	background-color: rgba(0,0,0,0.1);
-	/*font-weight: 300;*/
 }
 #cityname {   
 	position: fixed;   
@@ -215,12 +207,10 @@ h5 {
 #citymap {
 	position: fixed;
 	top: 50%;
-	/*top: 350px;*/
-	/*top: 320px;*/
 	left: 3%;
 }
 .boundary {
-	fill: rgba(255,255,255,0.1);
+	fill: rgba(255,255,255,0.15);
 	stroke: #fff;
 	stroke-width: 1px;
 	visibility: hidden;
@@ -243,7 +233,7 @@ h5 {
 /*popup*/
 .custom-popup .leaflet-popup-content-wrapper {
   /*background:rgba(0,0,0,0.5);*/
-  background-color: rgba(21,32,45,0.7);
+  background-color: rgba(21,32,45,0.8);
   color:#fff;
   font-size:16px;
   line-height:24px;
@@ -260,7 +250,7 @@ h5 {
   border-left:10px solid transparent;
   border-right:10px solid transparent;
   /*border-top:15px solid rgba(0,0,0,0.5);*/
-  border-top:15px solid rgba(21,32,45,0.7);
+  border-top:15px solid rgba(21,32,45,0.8);
   }
 
 /*image*/
@@ -284,18 +274,15 @@ h5 {
 
 .leaflet-bar, .leaflet-control-layers {
 	background-color: rgba(255,255,255,0.5);
-	/*border*/
 	border-color: rgba(0,0,0,0);
 	color: red;
 	fill: red;
-	/*border-radius: 0px;*/
 }
 
 .leaflet-bar a, .leaflet-bar a:hover {
 	color: red;
 }
 
-/*label*/
 .label {
 	font-family: 'gotham_book', sans-serif !important;
 	color: #fff;
