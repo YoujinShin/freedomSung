@@ -25,7 +25,7 @@ map.scrollWheelZoom.disable();
 if (map.tap) map.tap.disable();
 
 var base_layer = L.mapbox.tileLayer('examples.map-2k9d7u0c');
-base_layer.setOpacity(1);
+base_layer.setOpacity(0);
 base_layer.addTo(map);
 
 queue()
@@ -185,11 +185,11 @@ onscroll = function() {
 
   } else if(scrollTop >= 80) {
 
-    base_layer.setOpacity(0.5);
+    // base_layer.setOpacity(0);
 
     if(change == 0) {
       tempMarker.setLatLng([-26.20192,28.05097 ]);
-      map.setView([-26.20192,28.05097], 14); 
+      map.setView([-26.20192,28.05097], 15); 
 
       change = 1;
     }

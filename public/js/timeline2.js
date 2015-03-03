@@ -86,7 +86,7 @@ var bg_city = svg_city.append('rect')
 	.attr('height', height2 + margin.top + margin.bottom)
 	.style('visibility', 'hidden')
 	.attr('stroke', 'rgba(255,255,255,1)')
-	.attr('stroke-width', 1)
+	.attr('stroke-width', 1.5)
 	// .style('fill', 'rgba(0,0,0,0.3)');
 	.style('fill', 'rgba(255,255,255,0.0)');
 
@@ -216,7 +216,7 @@ function updateTimeline(d) {
     		if(e.event != eventname) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
 				
-				map.setView([e.start_lat, e.start_lon], 14); // 16, 9
+				map.setView([e.start_lat, e.start_lon], 15); // 16, 9
 				openImg(e);
 				eventname = e.event;
 
