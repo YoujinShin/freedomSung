@@ -6,7 +6,6 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoib2pvbGFvIiwiYSI6IlVMbWRBRDAifQ.fGYcIjLhkNO5xF
 // satellite: examples.map-2k9d7u0c
 // white: examples.map-8ced9urs'
 // 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png'
-
 var map = L.map('map', {
     zoomControl: false
 }).setView([-26.204407 + 8,28.037939 + 30], 4);
@@ -24,8 +23,11 @@ map.scrollWheelZoom.disable();
 // Disable tap handler, if present.
 if (map.tap) map.tap.disable();
 
+var pos_y = $(window).height() * 0.2 + 385;
+$('#cityname').css("top", pos_y+"px");
+
 var base_layer = L.mapbox.tileLayer('examples.map-2k9d7u0c');
-base_layer.setOpacity(0);
+base_layer.setOpacity(1);
 base_layer.addTo(map);
 
 queue()
@@ -62,20 +64,20 @@ function ready(error, data, city) {
 
   makeTimeline(data, city);
 
-  var RADIUS = 300000;
+  var RADIUS = 280000;
   // var RADIUS = 3000;
   var filterCircle = L.circle([-26.1715215,28.0400245], RADIUS, {
-      color: '#fff',
-      opacity: 0,
-      weight: 0,
-      fillOpacity: 0.3
+      color: '#FFEB3B',
+      opacity: 1,
+      weight: 2,
+      fillOpacity: 0
   }).addTo(centerLayer);
 
-  L.circle([-26.1715215,28.0400245], RADIUS/10, {
-      color: '#fff',
-      opacity: 0,
+  L.circle([-26.1715215,28.0400245], RADIUS/8, {
+      color: '#FFEB3B',
+      opacity: 1,
       weight: 0,
-      fillOpacity: 0.8
+      fillOpacity: 1
   }).addTo(centerLayer);
 
   var cityStyle = {
@@ -158,6 +160,8 @@ onscroll = function() {
     $('#h2').css({"visibility":"visible"});
     $('#intro').css({"visibility":"visible"});
     $('#scroll').css({"visibility":"visible"});
+    // $('#bg_intro').css({'"visibility':"hidden"});
+    $('#bg_intro').css({"visibility":"hidden"});
 
     $('#h1_2').css({"visibility":"hidden"});
     $('#h5').css({"visibility":"hidden"});
@@ -169,14 +173,13 @@ onscroll = function() {
     $('#southAftica').css({"visibility":"hidden"});
 
     $('#current_date').css({"visibility":"hidden"});
+    $('#cityname').css({"visibility":"hidden"});
 
     tooltip.style("visibility", "hidden");
-    cityname.style("visibility", "hidden");
     bg_city.style('visibility', 'hidden');
     bg_timeline.style("visibility", "hidden");
 
     date.style("visibility", "hidden");
-
     eventname = 'test';
 
     if(scrollTop > 40) {
@@ -185,11 +188,11 @@ onscroll = function() {
 
   } else if(scrollTop >= 80) {
 
-    // base_layer.setOpacity(0);
+    base_layer.setOpacity(0.8);
 
     if(change == 0) {
       tempMarker.setLatLng([-26.20192,28.05097 ]);
-      map.setView([-26.20192,28.05097], 15); 
+      map.setView([-26.20192,28.05097], 17); 
 
       change = 1;
     }
@@ -200,23 +203,19 @@ onscroll = function() {
     
     // map.removeLayer(markerLayer);
     // map.removeLayer(centerLayer);
+
+    bg_city.style('visibility', 'visible');
     bg_timeline.style("visibility", "visible");
 
-    cityname.style("visibility", "visible");
-    // cityname.text("Johannesburg, South Africa");
-    cityname.html("Johannesburg<br> South Africa");
-
-    var pos_y = $(window).height() * 0.5 + 260;
-    cityname.style("top",pos_y+"px").style("left",132+"px");
-    bg_city.style('visibility', 'visible');
-
-    // map.setView([-26.204407,28.037939+0.7], 9); // 12
-    // map.setView([-26.204407,28.037939+0.3], 10);
+    $('#cityname').css({"visibility":"visible"});
 
     $('#h1').css({"visibility":"hidden"});
     $('#h2').css({"visibility":"hidden"});
     $('#intro').css({"visibility":"hidden"});
     $('#scroll').css({"visibility":"hidden"});
+
+    // $('#bg_intro').css({'"visibility':"visible"});
+    $('#bg_intro').css({"visibility":"visible"});
 
     $('#h1_2').css({"visibility":"visible"});
     $('#h5').css({"visibility":"visible"});

@@ -11,27 +11,46 @@ body {
 }
 
 #bg_intro {
-	background-color: rgba(10,16,29,0.6);
+	background-color: rgba(0,0,0,0.55);
+	width: 210px;
+	height: 400px;
 	position: fixed; 
-	left: 2%;
-	top: 80px;
-	/*height: 80%;*/
-	/*z-index: 10;*/
+	visibility: hidden;
+	left: 10px;
+	top: 20%;
+	border-radius: 6px;
 }
 
 #current_date {
 	position: fixed;
-	top: 52.4%;
-	left: 100px;
-	font-size: 14px;
-	left: 4.1%;
+	padding-bottom: 4px;
+	/*top: 32%;*/
+	left: 30px;
+	width: 170px;
+	font-size: 12px;
 	letter-spacing: 1px;
 	visibility: hidden;
+	border-bottom: solid 1px rgba(255,255,255,0.6);
 
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
+	font-weight: 400;
 	/*font-family: 'gotham_light', sans-serif !important;*/
 	color: rgba(255,255,255,1);
+}
+
+#h1_2 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	position: relative;
+
+	/*top: 10%; */
+	visibility: hidden; 
+	left: 20px; 
+	top: 25px;
+	font-size: 20px; 
+	color: #fff; 
+	padding: 0px;
+	letter-spacing: 1px;
 }
 
 h2 {
@@ -57,16 +76,16 @@ h4 {
 	color: #fff;
 	position: fixed;
 	left: 48%;
-	font-size: 12px !important;
+	font-size: 14px !important;
 	margin-right: 5%;
 	padding: 8px;
 }
 .leaflet-container h3 {
 	/*font-family: 'gotham_light', sans-serif !important;*/
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	font-size: 15px;
-	padding: 3px;
+	font-weight: 400;
+	font-size: 13px;
+	padding: 2px;
 	/*letter-spacing: 1px;*/
 	text-align: center;
 	letter-spacing: 1px;
@@ -84,14 +103,12 @@ h4 {
 }
 h5 {
 	font-family: 'gotham_light', sans-serif !important;
-	/*font-family: sans-serif !important;*/
 	color: rgba(255,255,255,1);
 	opacity: 1;
 	position: fixed;
 	left: 3%;
 	top: 18.2%;
 	padding: 0px;
-	/*background-color: rgba(0,0,0,0.1);*/
 	font-size: 13px !important;
 	width: 200px;
 	line-height: 170%;
@@ -126,8 +143,8 @@ h5 {
 }
 #timeline {
     position: fixed;
-    top: 10%;
-    right: 1%;
+    top: 20%;
+    right: 5px;
 }
 #map { 
 	position: fixed;
@@ -177,12 +194,17 @@ h5 {
 	position: fixed;   
 	text-align: right;        
 	margin: 0px;
-	font: 13px 'gotham_book';        
+	/*font: 12px 'gotham_light';   */
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;  
+	font-size: 11px;   
 	border-radius: 2px;           
-	color: #fff;  
+	color: rgba(255,255,255,1);  
 	font-weight: 300;
 	letter-spacing: 1px;
 	line-height: 145%;
+	/*top: 35% !important;*/
+	left: 30px !important;
 }
 
 #date {
@@ -206,11 +228,12 @@ h5 {
 /*svg city map*/
 #citymap {
 	position: fixed;
-	top: 50%;
-	left: 3%;
+	z-index: 100;
+	/*top: 30%;*/
+	left: 10px;
 }
 .boundary {
-	fill: rgba(255,255,255,0.15);
+	fill: rgba(255,255,255,0);
 	stroke: #fff;
 	stroke-width: 1px;
 	visibility: hidden;
@@ -232,25 +255,21 @@ h5 {
 
 /*popup*/
 .custom-popup .leaflet-popup-content-wrapper {
-  /*background:rgba(0,0,0,0.5);*/
-  background-color: rgba(21,32,45,0.8);
-  color:#fff;
+  /*background-color: rgba(21,32,45,0.8);*/
+  background-color: rgba(0,0,0,0.55);
+  /*background-color: rgba(255,255,255,0.2);*/
+  color:#000;
   font-size:16px;
   line-height:24px;
-  border-radius: 0px;
-  }
-.custom-popup .leaflet-popup-content-wrapper a {
-  /*color:rgba(255,255,255,0.5);*/
-  }
-.custom-popup .leaflet-popup-tip-container {
-/*  width:30px;
-  height:15px;*/
+  border-radius: 6px;
+
   }
 .custom-popup .leaflet-popup-tip {
   border-left:10px solid transparent;
   border-right:10px solid transparent;
-  /*border-top:15px solid rgba(0,0,0,0.5);*/
-  border-top:15px solid rgba(21,32,45,0.8);
+  border-top:15px solid rgba(0,0,0,0.55);
+  /*border-top: 15px solid rgba(255,255,255,0.2);*/
+  /*border-top:15px solid rgba(21,32,45,0.8);*/
   }
 
 /*image*/
