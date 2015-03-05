@@ -11,7 +11,7 @@ body {
 }
 
 #bg_intro {
-	background-color: rgba(0,0,0,0.55);
+	background-color: rgba(0,0,0,0.5);
 	width: 210px;
 	height: 400px;
 	position: fixed; 
@@ -253,7 +253,7 @@ h5 {
 /*popup*/
 .custom-popup .leaflet-popup-content-wrapper {
   /*background-color: rgba(21,32,45,0.8);*/
-  background-color: rgba(0,0,0,0.55);
+  background-color: rgba(0,0,0,0.5);
   /*background-color: rgba(255,255,255,0.2);*/
   color:#000;
   font-size:16px;

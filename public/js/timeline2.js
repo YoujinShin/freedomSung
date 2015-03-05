@@ -94,7 +94,7 @@ var bg_timeline = svg.append("rect")
 		.style("fill", "#000")
 		.attr('rx', 6)
 		.style('visibility', 'hidden')
-		.style("opacity", 0.55);
+		.style("opacity", 0.5);
 
 
 var guideLine = svg.append("line")
