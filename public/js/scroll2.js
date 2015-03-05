@@ -99,14 +99,21 @@ function Init(d) {
 	var lat = d.start_lat;
 	var lon = d.start_lon;
 
-	// var marker = L.marker([ lat, lon ], { icon: myIcon });	
-  var marker = L.circle([ lat, lon ], circleRadius/8, {
-      // color: 'rgba(255,0,0,1)',
-      // color: '#F44336',
-      color: '#FFEB3B',
-      opacity: 1,
-      weight: 0,
-      fillOpacity: 0.0
+  // var marker = L.circle([ lat, lon ], circleRadius/8, {
+  //     color: '#FFEB3B',
+  //     opacity: 1,
+  //     weight: 0,
+  //     fillOpacity: 0.0
+  // });
+
+  var marker = L.marker([lat, lon], {
+    icon: L.mapbox.marker.icon({
+      'marker-color': '#FFEB3B', //yellow
+      // 'marker-color': '#f86767', // pink
+      // 'marker-color': '3887BE', // blue
+
+      'marker-size': 'small'
+    })
   });
 
   var feature = marker.feature;
@@ -136,7 +143,7 @@ function Init(d) {
     })
   });
 
-  // textMarker.addTo(cityLayer);
+  textMarker.addTo(cityLayer);
 }
 var change = 0;
 
@@ -192,7 +199,7 @@ onscroll = function() {
 
     if(change == 0) {
       tempMarker.setLatLng([-26.20192,28.05097 ]);
-      map.setView([-26.20192,28.05097], 17); 
+      map.setView([-26.20192,28.05097], 13); 
 
       change = 1;
     }

@@ -71,12 +71,15 @@ h2 {
 h4 {
 	/*font-family: 'gotham_light', sans-serif !important;*/
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
+	font-weight: 400;
 	letter-spacing: 1px;
 	color: #fff;
 	position: fixed;
+	text-align: center;
 	left: 48%;
-	font-size: 14px !important;
+	/*left: auto;
+	right: auto;*/
+	font-size: 13px !important;
 	margin-right: 5%;
 	padding: 8px;
 }
@@ -158,7 +161,6 @@ h5 {
 .axis path {
 	fill: none;
 	stroke: none;
-/*stroke: #000;*/
 }
 .axis line {
 	fill: none;
@@ -168,11 +170,6 @@ h5 {
 	font-family: 'gotham_light', sans-serif !important;
 	font-size: 10px;
 	/*visibility: visible;*/
-}
-.line {
-/*	fill: #fff;
-	stroke-weight: 5px;
-	stroke: rgba(255,255,255,1);*/
 }
 .tick {
 	/*color: #fff;*/
@@ -267,7 +264,7 @@ h5 {
 .custom-popup .leaflet-popup-tip {
   border-left:10px solid transparent;
   border-right:10px solid transparent;
-  border-top:15px solid rgba(0,0,0,0.55);
+  border-top:15px solid rgba(0,0,0,0.0);
   /*border-top: 15px solid rgba(255,255,255,0.2);*/
   /*border-top:15px solid rgba(21,32,45,0.8);*/
   }
@@ -303,11 +300,12 @@ h5 {
 }
 
 .label {
-	font-family: 'gotham_book', sans-serif !important;
-	color: #fff;
+	font-family: sans-serif !important;
+	color: rgba(255,255,255,0.9);
 	opacity: 1;
 	text-align: center;
-	font-size: 11px;
+	font-size: 9px;
 	letter-spacing: 1px;
+	/*color: rgba(21,32,45,1);*/
 }
 

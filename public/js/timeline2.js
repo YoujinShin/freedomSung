@@ -237,8 +237,9 @@ function updateTimeline(d) {
 
     		if(e.event != eventname) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
+				// marker.properties['marker-color'] = '#ff8888';
 				
-				map.setView([e.start_lat, e.start_lon], 17); // 16, 9
+				map.setView([e.start_lat, e.start_lon], 13); // 16, 9
 				openImg(e);
 				eventname = e.event;
 
