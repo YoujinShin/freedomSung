@@ -23,7 +23,7 @@ map.scrollWheelZoom.disable();
 // Disable tap handler, if present.
 if (map.tap) map.tap.disable();
 
-var pos_y = $(window).height() * 0.2 + 385;
+var pos_y = $(window).height() * 0.15 + 450;
 $('#cityname').css("top", pos_y+"px");
 
 var base_layer = L.mapbox.tileLayer('examples.map-2k9d7u0c');
@@ -109,9 +109,6 @@ function Init(d) {
   var marker = L.marker([lat, lon], {
     icon: L.mapbox.marker.icon({
       'marker-color': '#FFEB3B', //yellow
-      // 'marker-color': '#f86767', // pink
-      // 'marker-color': '3887BE', // blue
-
       'marker-size': 'small'
     })
   });
@@ -185,6 +182,7 @@ onscroll = function() {
     tooltip.style("visibility", "hidden");
     bg_city.style('visibility', 'hidden');
     bg_timeline.style("visibility", "hidden");
+    stateLine.style('visibility', 'hidden');
 
     date.style("visibility", "hidden");
     eventname = 'test';
@@ -207,6 +205,7 @@ onscroll = function() {
     map.removeLayer(centerLayer);
     cityLayer.addTo(map);
     updateTimeline(scrollTop);
+    stateLine.style('visibility', 'visible');
     
     // map.removeLayer(markerLayer);
     // map.removeLayer(centerLayer);

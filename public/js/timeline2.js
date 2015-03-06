@@ -2,7 +2,7 @@ var margin = { top: 30, right: 5, left: 5, bottom: 30 };
 
 var width = 50,
 	width = width - margin.left - margin.right,
-	height = $(window).height() * 0.5,
+	height = $(window).height() * 0.6,
 	hegiht = height - margin.top - margin.bottom;
 
 var width2 = 200,
@@ -10,12 +10,6 @@ var width2 = 200,
 
 var y = d3.time.scale()
 	.range([2, height]);
-
-var yAxis = d3.svg.axis()
-	.scale(y)
-	.orient("left")
-	.innerTickSize([20])
-	.ticks(12);
 
 var smallScale = 80;	//128
 var largeScale = 1800;	//1269
@@ -63,10 +57,10 @@ var svg_city = d3.select("#citymap").append("svg")
 	.append("g")
 		.attr("transform", "translate("+margin.left+","+margin.top+")");
 
-var pos_y2 = $(window).height() * 0.2 + 100;
+var pos_y2 = $(window).height() * 0.15 + 85;
 $('#citymap').css("top", pos_y2+"px");
 
-var pos_y1 = $(window).height() * 0.2 + 110;
+var pos_y1 = $(window).height() * 0.15 + 410;
 $('#current_date').css("top", pos_y1+"px");
 
 var g = svg_city.append("g")
@@ -83,7 +77,6 @@ var bg_city = svg_city.append('rect')
 	.attr('stroke', 'rgba(255,255,255,1)')
 	.attr('stroke-width', 0)
 	.attr('rx', 6)
-	// .style('fill', 'rgba(0,0,0,0.5)');
 	.style('fill', 'rgba(255,255,255,0.0)');
 
 var bg_timeline = svg.append("rect")
@@ -94,39 +87,26 @@ var bg_timeline = svg.append("rect")
 		.style("fill", "#000")
 		.attr('rx', 6)
 		.style('visibility', 'hidden')
-		.style("opacity", 0.5);
-
-
-var guideLine = svg.append("line")
-			.attr("x1",  width/2)
-			.attr("y1", 0 )
-			.attr("x2",  width/2 )
-			.attr("y2", height )
-			.style("stroke", "#fff")
-			.style('opacity', 0.3)
-			.style("stroke-width", 1)
-			.style("visibility", "hidden");
+		.style("opacity", 0.45);
 
 var stateLine = svg.append("line")
 			.attr("x1", width/2)
 			.attr("y1", 0 )
 			.attr("x2", width/2)
 			.attr("y2", 0 )
-			.style("stroke", "#FFEB3B")
-			.style('opacity', 1)
-			.style("stroke-width", 1)
+			// .style("stroke", "#FFEB3B")
+			.style("stroke", "#fff")
+			.style('opacity', 0.4)
+			.style("stroke-width", 1.2)
 			.style("visibility", "hidden");
-
 
 var dot = svg.append("circle")
 		.attr("cx", width/2)
 		.attr("cy", 0)
 		.attr("r", 5.2)
-		// .attr('stroke', 'rgba(255,255,255,1)')
 		.attr('stroke', '#FFEB3B')
 		.attr('stroke-width', 1.3)
 		.style("fill-opacity", 0)
-		// .style("fill", "#FFEB3B")
 		.style("visibility", "hidden");
 
 function makeTimeline(data, city) {
@@ -181,18 +161,6 @@ function makeTimeline(data, city) {
 			.style("stroke-width", 0)
 			.style("visibility", "hidden");
 
-	// events = svg.selectAll(".dot")
-	// 		.data(data)
-	// 	.enter().append("line")
-	// 		.attr("x1", function(d) { return width/2-5; })
-	// 		.attr("y1", function(d) { return y(d.start); })
-	// 		.attr("x2", function(d) { return width/2+5; })
-	// 		.attr("y2", function(d) { return y(d.start); })
-	// 		.style("stroke", "#fff")
-	// 		.style('opacity', 1)
-	// 		.style("stroke-width", 1.2)
-	// 		.style("visibility", "hidden");
-
 	var temp = width/2 + 10;
 }
 
@@ -214,11 +182,8 @@ function updateTimeline(d) {
 	events.style("visibility", "visible");
 
 	events.each(function(e) {
-		// var distance = Math.abs( d3.select(this).attr("y2") - mouseY );
 		var distance = Math.abs( d3.select(this).attr("cy") - mouseY );
 		if(distance < 1.2) {
-			// d3.select(this).attr("x1", width/2 - 35);
-			// d3.select(this).style("stroke-width", 2)
 
 			var t = mouseY + 102;
 			tooltip.style("visibility", "hidden");
@@ -228,11 +193,10 @@ function updateTimeline(d) {
     		// date.text(e.date);
     		date.style("top", t+"px").style("right",90+"px");
 
-    		$('#current_date').html('Date: '+e.date);
+    		$('#current_date').html('<span style="color:yellow">Date : <span><span style="color:white">'
+    			+e.date+"</span>");
 
-    		// var ty = d3.select(this).attr("y2");
     		var ty = d3.select(this).attr("cy");
-
     		stateLine.transition().duration(520).attr('y1', ty);
 
     		if(e.event != eventname) {

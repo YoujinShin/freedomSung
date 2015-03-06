@@ -11,13 +11,14 @@ body {
 }
 
 #bg_intro {
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.45);
 	width: 210px;
-	height: 400px;
+	/*height: 400px;*/
+	height: 450px;
 	position: fixed; 
 	visibility: hidden;
 	left: 10px;
-	top: 20%;
+	top: 15%;
 	border-radius: 6px;
 }
 
@@ -27,10 +28,10 @@ body {
 	/*top: 32%;*/
 	left: 30px;
 	width: 170px;
-	font-size: 12px;
+	font-size: 11px;
 	letter-spacing: 1px;
 	visibility: hidden;
-	border-bottom: solid 1px rgba(255,255,255,0.6);
+	border-bottom: solid 1px rgba(255,255,255,0.4);
 
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
@@ -42,15 +43,39 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	position: relative;
+	border-bottom: solid 1px rgba(255,255,255,0.4);
+
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 2px;
 
 	/*top: 10%; */
 	visibility: hidden; 
+	/*left: 20px; */
+	top: 26px;
+	text-align: center;
+	font-size: 16px; 
+	color: #fff; 
+	padding: 0px;
+	letter-spacing:2px;
+
+}
+
+#h1_3 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	position: relative;
+
+	/*top: 10%; */
+	/*visibility: hidden; */
 	left: 20px; 
-	top: 25px;
-	font-size: 20px; 
+	top: 40px;
+	font-size: 11px; 
+	width: 170px;
 	color: #fff; 
 	padding: 0px;
 	letter-spacing: 1px;
+
 }
 
 h2 {
@@ -69,7 +94,6 @@ h2 {
 	letter-spacing: 2px;
 }
 h4 {
-	/*font-family: 'gotham_light', sans-serif !important;*/
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	letter-spacing: 1px;
@@ -77,8 +101,6 @@ h4 {
 	position: fixed;
 	text-align: center;
 	left: 48%;
-	/*left: auto;
-	right: auto;*/
 	font-size: 13px !important;
 	margin-right: 5%;
 	padding: 8px;
@@ -87,15 +109,12 @@ h4 {
 	/*font-family: 'gotham_light', sans-serif !important;*/
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
-	font-size: 13px;
-	padding: 2px;
-	/*letter-spacing: 1px;*/
+	font-size: 12px;
+	padding: 1px;
 	text-align: center;
 	letter-spacing: 1px;
 
 	color: #fff;
-	/*background-color: rgba(0,0,0,0.5);*/
-	/*background-color: rgba(10,16,29,0.6);*/
 }
 #southAftica {
 	visibility: hidden;
@@ -146,7 +165,7 @@ h5 {
 }
 #timeline {
     position: fixed;
-    top: 20%;
+    top: 15%;
     right: 5px;
 }
 #map { 
@@ -155,7 +174,8 @@ h5 {
 	left: 0;
 	height: 100%;
 	width: 100%; 
-	background-color: rgba(21,32,45,1);
+	background-color: rgba(21,32,45,0.5);
+	/*background-color: rgba(255,255,255,1);*/
 }
 
 .axis path {
@@ -206,7 +226,7 @@ h5 {
 
 #date {
 	position: fixed;
-	font: 14px 'gotham_book';        
+	font: 12px 'gotham_book';        
 	color: #fff; 
 	opacity: 1;
 	letter-spacing: 1px;
@@ -226,6 +246,7 @@ h5 {
 #citymap {
 	position: fixed;
 	z-index: 100;
+	/*top: 20px;*/
 	/*top: 30%;*/
 	left: 10px;
 }
@@ -253,7 +274,7 @@ h5 {
 /*popup*/
 .custom-popup .leaflet-popup-content-wrapper {
   /*background-color: rgba(21,32,45,0.8);*/
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.45);
   /*background-color: rgba(255,255,255,0.2);*/
   color:#000;
   font-size:16px;
@@ -265,8 +286,6 @@ h5 {
   border-left:10px solid transparent;
   border-right:10px solid transparent;
   border-top:15px solid rgba(0,0,0,0.0);
-  /*border-top: 15px solid rgba(255,255,255,0.2);*/
-  /*border-top:15px solid rgba(21,32,45,0.8);*/
   }
 
 /*image*/
