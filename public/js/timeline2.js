@@ -203,20 +203,20 @@ function updateTimeline(d) {
 				tempMarker.setLatLng([e.start_lat, e.start_lon ]);
 				// marker.properties['marker-color'] = '#ff8888';
 				
-				// map.setView([e.start_lat, e.start_lon], 13); // 16, 9
+				map.setView([e.start_lat, e.start_lon], 13); // 16, 9
 
-				var t = 0.06;
+				// var t = 0.06;
 
-				map.fitBounds([ 
-					[e.start_lat - t/2, e.start_lon -t], // southWest [y, x]
-					[e.start_lat + t/2, e.start_lon + t] // northEast
-				], {
-					// this preserves the space from the left of the real map to 200px
-					// for content. the format is [x, y]. See
-					// http://leafletjs.com/reference.html#map-paddingtopleft
-					// for full documentation and other options
-					paddingTopLeft: [-240, 480]
-				});
+				// map.fitBounds([ 
+				// 	[e.start_lat - t/2, e.start_lon -t], // southWest [y, x]
+				// 	[e.start_lat + t/2, e.start_lon + t] // northEast
+				// ], {
+				// 	// this preserves the space from the left of the real map to 200px
+				// 	// for content. the format is [x, y]. See
+				// 	// http://leafletjs.com/reference.html#map-paddingtopleft
+				// 	// for full documentation and other options
+				// 	paddingTopLeft: [-240, 480]
+				// });
 
 				openImg(e);
 				eventname = e.event;
